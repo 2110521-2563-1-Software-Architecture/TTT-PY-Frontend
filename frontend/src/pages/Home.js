@@ -2,7 +2,7 @@ import React from 'react'
 import '../components/Public.css';
 function Home() {
     return (
-        <div className="text-color">
+        <div className="background-color">
             <div className="title" style={{paddingTop:"200px",paddingLeft:"100px"}}>
                 WELCOME
             </div>
