@@ -40,7 +40,7 @@
 }
 
 body {
-  background: #181818 !important;
+  background: var(--bg-primary-color) !important;
   margin: 0;
   width: 100vw;
   overflow-y: scroll;
