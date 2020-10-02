@@ -1,6 +1,33 @@
+:root {
+    --bg-primary-color: #FFFFFF;
+    --bg-secondary-color: #F2F2F2;
+    --text-primary-color: #000000;
+    --text-secondary-color: #CDCDCD;
+    --button-bg-color: #000000;
+    --button-text-color: #FFFFFF;
+    --selected-color: #DBDBDB;
+    --textbox-bg-color: #F1F1F1;
+    --textbox-text-color: #898989;
+
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+        --bg-primary-color: #181818;
+        --bg-secondary-color: #2A2D33;
+        --text-primary-color: #FFFFFF;
+        --text-secondary-color: #6C6C6C;
+        --button-bg-color: #FFFFFF;
+        --button-text-color: #000000;
+        --selected-color: #464646;
+        --textbox-bg-color: #292929;
+        --textbox-text-color: #CECECE;
+    }
+  }
+
 .sidebar {
-    background-color: rgb(214, 218, 219);
-    width: 20vw;
+    background-color: var(--bg-secondary-color);
+    width: 250px;
     height: 100vh;
     display: flex;
     align-items: baseline;
@@ -22,33 +49,40 @@
 .nav-menu {
     display: grid;
     grid-template-rows: repeat(4, auto);
-    grid-gap: 10px;
-    text-align: center;
-    width: 80%;
+    grid-gap: 5px;
+    width: 100%;
 }
 
 .nav-item {
+    margin: auto;
     height: 50px;
-    width: 100%;
-    /* border-radius: 5px; */
-    /* background-color: royalblue; */
+    width: 80%;
+}
+
+.nav-text {
+    font-weight: bold;
+    font-size: 15px;
+    padding-left: 15px;
+}
+
+.isDisabled {
+    color: var(--text-secondary-color) !important;
+    cursor: default !important;
+    pointer-events: none;
 }
 
 .nav-links {
-    color: black;
-    font-weight: bold;
-    font-size: 15px;
+    color: var(--text-primary-color);
     display: flex;
     align-items: center;
     text-decoration: none;
     height: 100%;
     width: 100%;
-    padding-left: 15px;
     border-radius: 5px;
 }
 
 .nav-links:hover {
-    background-color:  rgb(183, 186, 187);
+    background-color:  var(--selected-color);
     width: 100%;
     transition: all 0.2s ease-out;
 }
@@ -60,7 +94,6 @@
     bottom: 0;
     width: 18vw;
     height: 80px;
-    /* background-color: black; */
     padding: 1vw;
 }
 
@@ -71,10 +104,10 @@
     object-fit: cover;
 }
 .username {
-    /* background-color: royalblue; */
-    font-size: 20px;
+    color: var(--text-primary-color);
+    font-size: 15px;
     font-weight: bold;
-    width: 80%;
-    margin: 10%;
+    width: 100%;
+    margin: 20%;
     
 }

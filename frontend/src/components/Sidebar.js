@@ -7,18 +7,18 @@ function Sidebar() {
       <div className="sidebar-container">
         <div className="nav-menu">
           <div className='nav-item'>
-            <Link to='/' className='nav-links'>
-              Home
+            <Link to='/Home' className='nav-links'>
+              <div className='nav-text'>Home</div>
             </Link>
           </div>
           <div className='nav-item'>
-            <Link to='/' className='nav-links'>
-              Chat
+            <Link to='/' className='nav-links isDisabled'>
+              <div className='nav-text'>Chat</div>
             </Link>
           </div>
           <div className='nav-item'>
-            <Link to='/' className='nav-links'>
-              Profile
+            <Link to='/' className='nav-links isDisabled'>
+              <div className='nav-text'>Settings</div>
             </Link>
           </div>
         </div>
