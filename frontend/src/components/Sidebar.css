@@ -1,32 +1,17 @@
-:root {
-    --bg-primary-color: #FFFFFF;
-    --bg-secondary-color: #F2F2F2;
-    --text-primary-color: #000000;
-    --text-secondary-color: #CDCDCD;
-    --button-bg-color: #000000;
-    --button-text-color: #FFFFFF;
-    --selected-color: #DBDBDB;
-    --textbox-bg-color: #F1F1F1;
-    --textbox-text-color: #898989;
+@import "./Public.css";
 
+:root {
+    --sidebar-bg-color: linear-gradient(180deg, rgba(212, 90, 255, 0.02) 0%, rgba(255, 123, 218, 0.04) 100%), #F2F2F2;
   }
   
   @media (prefers-color-scheme: dark) {
     :root {
-        --bg-primary-color: #181818;
-        --bg-secondary-color: #2A2D33;
-        --text-primary-color: #FFFFFF;
-        --text-secondary-color: #6C6C6C;
-        --button-bg-color: #FFFFFF;
-        --button-text-color: #000000;
-        --selected-color: #464646;
-        --textbox-bg-color: #292929;
-        --textbox-text-color: #CECECE;
+        --sidebar-bg-color: linear-gradient(180deg, rgba(42, 45, 51, 0.5) 0%, rgba(111, 14, 84, 0.1) 78.12%), linear-gradient(180deg, rgba(42, 45, 51, 0.5) 0%, rgba(44, 69, 92, 0.1) 100%), #2A2D33;
     }
   }
 
 .sidebar {
-    background-color: var(--bg-secondary-color);
+    background: var(--sidebar-bg-color);
     width: 250px;
     height: 100vh;
     display: flex;
@@ -55,14 +40,14 @@
 
 .nav-item {
     margin: auto;
-    height: 50px;
-    width: 80%;
+    height: 40px;
+    width: 90%;
 }
 
 .nav-text {
     font-weight: bold;
     font-size: 15px;
-    padding-left: 15px;
+    padding-left: 30px;
 }
 
 .isDisabled {
@@ -82,7 +67,7 @@
 }
 
 .nav-links:hover {
-    background-color:  var(--selected-color);
+    background-color: var(--selected-color);
     width: 100%;
     transition: all 0.2s ease-out;
 }
