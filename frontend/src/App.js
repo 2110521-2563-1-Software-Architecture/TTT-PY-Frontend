@@ -1,5 +1,6 @@
 import React from 'react';
 import Sidebar from './components/Sidebar';
+import Header from './components/Header';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './components/pages/Home';
@@ -10,8 +11,9 @@ import Chat from './components/pages/Chat';
 function App() {
   return (
     <>
-      <Router >
-        <Sidebar />
+      <Router>
+        <Sidebar/>
+        <Header/>
         <Switch>
           <Route path='/' exact component={Home}/>
           <Route path='/login' component={Login} />

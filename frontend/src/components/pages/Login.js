@@ -4,8 +4,8 @@ import '../Public.css';
 function Login() {
     return (
         <div className="background-color">
-            <div className="title" style={{paddingTop:"200px",paddingLeft:"100px"}}>
-                SIGN IN
+            <div className="title" style={{paddingTop:"140px",paddingLeft:"100px"}}>
+                Sign In
             </div>
             <div className="box" style={{marginTop:"20px",marginBottom:"20px",marginLeft:"100px"}}>
                 Email Address

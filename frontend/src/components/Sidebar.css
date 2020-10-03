@@ -12,6 +12,9 @@
 
 .sidebar {
     background: var(--sidebar-bg-color);
+    -webkit-box-shadow: inset -6px 0px 15px -15px rgba(0,0,0,0.5);
+    -moz-box-shadow: inset -6px 0px 15px -15px rgba(0,0,0,0.5);
+    box-shadow: inset -6px 0px 15px -15px rgba(0,0,0,0.5);
     width: 250px;
     height: 100vh;
     display: flex;
@@ -102,9 +105,8 @@
 }
 
 .user-image {
-    width: 58px;
-    height: 58px;
-    border-radius: 50%;
+    width: 60px;
+    height: 60px;
 }
 .username {
     color: var(--text-primary-color);

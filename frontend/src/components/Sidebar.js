@@ -24,13 +24,13 @@ function Sidebar() {
           </div>
         </div>
       </div>
-      <div className="user">
-        <Link to="/Login" className="row user-row">
-          <div className="col-md-3" style={{}}>
-            <img className="user-image" style={{marginLeft:"10px"}} src="user_icon.png" />
+      <div className="user container-fluid" style={{}}>
+        <Link to="/Login" className="row user-row" style={{}}>
+          <div className="col-md-4" style={{}}>
+            <img className="user-image" style={{}} src="user_icon.png" />
           </div>
-          <div className="col-md-9" style={{}}>
-            <div className="username" style={{paddingLeft:"10px"}}>Sign In</div>
+          <div className="col-md-8" style={{}}>
+            <div className="username" style={{textAlign:"left"}}>Sign In</div>
           </div>
         </Link>
       </div>
