@@ -3,7 +3,7 @@ import '../components/Public.css';
 function Home() {
     return (
         <div className="background-color">
-            <div className="title" style={{paddingTop:"200px",paddingLeft:"100px"}}>
+            <div className="title" style={{paddingTop:"140px",paddingLeft:"100px"}}>
                 WELCOME
             </div>
             <div className="box" style={{marginTop:"20px",marginBottom:"20px",marginLeft:"100px"}}>

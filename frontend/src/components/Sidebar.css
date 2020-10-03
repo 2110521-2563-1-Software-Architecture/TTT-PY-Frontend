@@ -96,6 +96,10 @@
     transition: all 0.2s ease-out;
 }
 
+.user-row {
+    width: 100%;
+}
+
 .user-row:hover {
     text-decoration: none;
 }
@@ -103,7 +107,6 @@
 .user-image {
     width: 58px;
     height: 58px;
-    border-radius: 50%;
 }
 .username {
     color: var(--text-primary-color);
