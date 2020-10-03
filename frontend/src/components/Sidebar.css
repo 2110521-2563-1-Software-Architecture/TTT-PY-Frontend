@@ -6,7 +6,8 @@
     align-items: baseline;
     position: fixed;
     left: 0;
-    /* z-index: 999; */
+    top: 0;
+    z-index: 999;
 }
 
 .sidebar-container {
