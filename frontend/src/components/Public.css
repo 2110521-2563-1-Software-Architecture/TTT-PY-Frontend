@@ -3,7 +3,7 @@
     --bg-secondary-color: #F2F2F2;
     --text-primary-color: #000000;
     --text-secondary-color: #CDCDCD;
-    --button-bg-color: #000000;
+    --button-bg-color: #181818;
     --button-text-color: #FFFFFF;
     --selected-color: rgba(219,219,219,0.8);
     --textbox-bg-color: #F1F1F1;
@@ -17,7 +17,7 @@
         --bg-secondary-color: #2A2D33;
         --text-primary-color: #FFFFFF;
         --text-secondary-color: #6C6C6C;
-        --button-bg-color: #FFFFFF;
+        --button-bg-color: #FEFEFE;
         --button-text-color: #000000;
         --selected-color: rgba(100,100,100,0.4);
         --textbox-bg-color: #292929;

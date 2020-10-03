@@ -5,7 +5,7 @@ function Login() {
     return (
         <div className="background-color">
             <div className="title" style={{paddingTop:"140px",paddingLeft:"100px"}}>
-                SIGN IN
+                Sign In
             </div>
             <div className="box" style={{marginTop:"20px",marginBottom:"20px",marginLeft:"100px"}}>
                 Email Address
