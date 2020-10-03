@@ -1,3 +1,5 @@
+@import "./components/Public.css";
+
 .App {
   display: grid;
   grid-template-rows: 20vw auto;
@@ -37,4 +39,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+body {
+  background: var(--bg-primary-color) !important;
+  margin: 0;
+  width: 100vw;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }

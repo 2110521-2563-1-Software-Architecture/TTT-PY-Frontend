@@ -1,0 +1,75 @@
+:root {
+    --bg-primary-color: #FFFFFF;
+    --bg-secondary-color: #F2F2F2;
+    --text-primary-color: #000000;
+    --text-secondary-color: #CDCDCD;
+    --button-bg-color: #000000;
+    --button-text-color: #FFFFFF;
+    --selected-color: rgba(219,219,219,0.8);
+    --textbox-bg-color: #F1F1F1;
+    --textbox-text-color: #898989;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+        --bg-primary-color: #181818;
+        --bg-secondary-color: #2A2D33;
+        --text-primary-color: #FFFFFF;
+        --text-secondary-color: #6C6C6C;
+        --button-bg-color: #FFFFFF;
+        --button-text-color: #000000;
+        --selected-color: rgba(100,100,100,0.4);
+        --textbox-bg-color: #292929;
+        --textbox-text-color: #CECECE;
+    }
+  }
+
+
+body {
+    padding-left: 250px;
+}
+.background-color {
+    background-color: var(--bg-primary-color);
+    background-size: 100% 100%;
+}
+
+.text-color {
+    color: var(--text-primary-color);
+}
+
+.title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 72px;
+    line-height: 112px;
+    color: var(--text-primary-color);
+}
+
+.box {
+    background: var(--textbox-bg-color);
+    color: black;
+    border: hidden;
+    border-radius: 6px;
+    width: 500px;
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.box::placeholder {
+    color: var(--textbox-text-color);
+}
+
+.button {
+    background: var(--button-bg-color);
+    color: var(--button-text-color);
+    font-weight: bold;
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    border-radius: 6px;
+    text-align: center;
+    cursor: pointer;
+}

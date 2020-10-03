@@ -1,6 +1,18 @@
+@import "./Public.css";
+
+:root {
+    --sidebar-bg-color: linear-gradient(180deg, rgba(212, 90, 255, 0.02) 0%, rgba(255, 123, 218, 0.04) 100%), #F2F2F2;
+  }
+  
+@media (prefers-color-scheme: dark) {
+    :root {
+        --sidebar-bg-color: linear-gradient(180deg, rgba(42, 45, 51, 0.5) 0%, rgba(111, 14, 84, 0.1) 78.12%), linear-gradient(180deg, rgba(42, 45, 51, 0.5) 0%, rgba(44, 69, 92, 0.1) 100%), #2A2D33;
+    }
+  }
+
 .sidebar {
-    background-color: rgb(214, 218, 219);
-    width: 20vw;
+    background: var(--sidebar-bg-color);
+    width: 250px;
     height: 100vh;
     display: flex;
     align-items: baseline;
@@ -23,33 +35,40 @@
 .nav-menu {
     display: grid;
     grid-template-rows: repeat(4, auto);
-    grid-gap: 10px;
-    text-align: center;
-    width: 80%;
+    grid-gap: 5px;
+    width: 100%;
 }
 
 .nav-item {
-    height: 50px;
-    width: 100%;
-    /* border-radius: 5px; */
-    /* background-color: royalblue; */
+    margin: auto;
+    height: 40px;
+    width: 90%;
+}
+
+.nav-text {
+    color: var(--text-primary-color);
+    font-weight: bold;
+    font-size: 15px;
+    padding-left: 30px;
+}
+
+.nav-links.isDisabled > .nav-text, .nav-links.isDisabled {
+    color: var(--text-secondary-color) !important;
+    cursor: default !important;
+    pointer-events: none !important;
 }
 
 .nav-links {
-    color: black;
-    font-weight: bold;
-    font-size: 15px;
     display: flex;
     align-items: center;
-    text-decoration: none;
+    text-decoration: none !important;
     height: 100%;
     width: 100%;
-    padding-left: 15px;
     border-radius: 5px;
 }
 
 .nav-links:hover {
-    background-color:  rgb(183, 186, 187);
+    background-color: var(--selected-color);
     width: 100%;
     transition: all 0.2s ease-out;
 }
@@ -61,21 +80,35 @@
     bottom: 0;
     width: 18vw;
     height: 80px;
-    /* background-color: black; */
     padding: 1vw;
 }
 
-.user-image {
-    width: 80px;
+.user {
+    position: absolute;
+    bottom: 0;
     height: 80px;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.user:hover {
+    background-color: var(--selected-color);
+    transition: all 0.2s ease-out;
+}
+
+.user-row:hover {
+    text-decoration: none;
+}
+
+.user-image {
+    width: 58px;
+    height: 58px;
     border-radius: 50%;
-    object-fit: cover;
 }
 .username {
-    /* background-color: royalblue; */
-    font-size: 20px;
+    color: var(--text-primary-color);
+    font-size: 15px;
     font-weight: bold;
-    width: 80%;
-    margin: 10%;
-    
+    line-height: 60px;
 }
