@@ -1,0 +1,51 @@
+.friend-list-header{
+    padding: 1%;
+    /* background-color: black; */
+    width: 24%;
+    height: 20%;
+}
+
+.friend-list-container{
+    /* overflow: auto; */
+    height: 80%;
+    overflow-y: scroll;
+}
+.friend-box:hover {
+    background-color: rgb(231, 231, 231);
+    width:23%;
+    transition: all 0.2s ease-out;
+}
+.friend-list{
+    display: list-item;
+    padding-top: 2px;
+    padding-bottom: 55px;
+    width: 28.5%;
+    
+}
+.friend-box {
+    display: grid;
+    grid-template-columns: 25% auto;
+    position: fixed;
+    width: 23%;
+    height: 80px;
+    /* background-color: black; */
+    padding: 0.5vw;
+    /* border-style: groove; */
+    /* border-color: rgb(214, 218, 219); */
+
+}
+
+.friend-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.friend-name {
+    /* background-color: royalblue; */
+    font-size: 20px;
+    width: 80%;
+    margin-top: 6%;
+    color: black;
+}

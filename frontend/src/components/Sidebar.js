@@ -1,5 +1,6 @@
 import React from 'react'
 import './Sidebar.css';
+import Home from '../pages/Home';
 import { Link } from 'react-router-dom';
 function Sidebar() {
   return (
