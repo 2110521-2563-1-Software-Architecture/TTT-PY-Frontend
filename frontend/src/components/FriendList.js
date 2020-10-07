@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import './FriendList.css';
-import axios from "axios";
+import Util from '../Util';
 
 export class FriendList extends Component{
     constructor(props){
@@ -32,6 +32,10 @@ export class FriendList extends Component{
                     name: "User     6",
                     img : "userimage.jpeg"
                 },
+                {
+                    name: "User     7",
+                    img : "userimage.jpeg"
+                },
             ],
             amounts: 12
         }
@@ -60,7 +64,7 @@ export class FriendList extends Component{
         //     let params = new URLSearchParams(window.location.search);
             // var data = await Uint8ClampedArray.getFriends(params.get(""))
         
-            // var response = await Util.getChatUserBox(params.get("userId"));
+            var response = await Util.getFriend();
             // this.onClickUser(response._id);
           
     }

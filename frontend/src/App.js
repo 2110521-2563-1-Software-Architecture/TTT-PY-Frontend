@@ -17,7 +17,7 @@ function App() {
         <Header/>
         <Switch>
           <Route path='/' exact component={Home}/>
-          <Route path='/login' component={Login} />
+          <Route path='/login' component={Login2} />
           <Route path='/login2' component={Login2} />
           <Route path='/Setting' component={Setting} />
           <Route path='/chat' component={Chat} />
