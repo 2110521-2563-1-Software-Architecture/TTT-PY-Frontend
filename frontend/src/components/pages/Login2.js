@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Component } from 'react'
 import '../Public.css';
 import Util from "../../Util";
-
+// import { useHistory } from "react-router-dom";
 export class Login2 extends Component {
     constructor(props) {
         super(props);
@@ -11,6 +11,7 @@ export class Login2 extends Component {
             password: "",
         };
         this.onClickLogin = this.onClickLogin.bind(this);
+        // const history = useHistory();
     }
     render() {
         return (
@@ -21,7 +22,7 @@ export class Login2 extends Component {
                             Sign In
                         </div>
 
-                        <input type="email" id="email" className="row box" placeholder="Email Address" value={this.state.email}
+                        <input type="text" id="email" className="row box" placeholder="Email Address" value={this.state.email}
                         onChange={(e) => {
                             this.setState({ email: e.target.value });}}
                         style={{ marginTop: "20px", marginBottom: "20px", marginLeft: "100px" }} required></input>
@@ -52,7 +53,7 @@ export class Login2 extends Component {
         } else {
             localStorage.setItem("token", data.token);
             localStorage.setItem("user", JSON.stringify(data.user));
-            //history.push("/profile");
+            // this.history.push("/chat");
             window.location.reload();
         }
     };
