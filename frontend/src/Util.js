@@ -23,7 +23,7 @@ const Util = {
     const URL = `http://localhost:8081/auth/register`;
     const response = await fetch(URL, {
       method: "POST",
-      mode: "no-cors",
+      mode: "cors",
       cache: "no-cache",
       headers: {
         "Content-Type": "application/json",
