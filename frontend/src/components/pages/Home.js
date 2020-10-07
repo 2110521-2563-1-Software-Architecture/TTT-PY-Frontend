@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import "../Public.css";
+import Util from "../../Util";
 function Home() {
   const [userAccount, setUserAccount] = useState(false);
   const [user, setUsername] = useState("");
@@ -28,6 +29,7 @@ function Home() {
       setUserAccount(false);
     } else {
       setUserAccount(true);
+      Util.register(user,email,password)
       history.push("/login");
     }
     console.log("user information");
