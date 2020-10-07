@@ -33,8 +33,11 @@ const Util = {
         email,
         password
       }),
+      // body: {"username": "tangtai2"}
     });
-    console.log(response);
+    console.log("username ",username)
+    console.log(response)
+    console.log(response.body);
     if (response.status == 400) return response.json();
     if (response.status == 200) return response.json();
   },
