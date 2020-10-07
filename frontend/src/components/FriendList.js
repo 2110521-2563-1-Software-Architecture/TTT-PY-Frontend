@@ -58,17 +58,8 @@ export class FriendList extends Component{
         // console.log(window.location.search)
         // if (window.location.search) {
         //     let params = new URLSearchParams(window.location.search);
-        //     var userId = params.get("userId");
-            axios
-                .get("http://localhost:8081/friend")
-                    .then(res => res.json())
-                    .then((result)=>
-                        console.log(result)
-                        // this.setState({
-
-                        // })
-                )
-                
+            // var data = await Uint8ClampedArray.getFriends(params.get(""))
+        
             // var response = await Util.getChatUserBox(params.get("userId"));
             // this.onClickUser(response._id);
           
