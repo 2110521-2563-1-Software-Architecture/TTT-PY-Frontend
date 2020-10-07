@@ -63,7 +63,7 @@ body {
 
 .box {
     background: var(--textbox-bg-color);
-    color: black;
+    color: var(--text-primary-color);
     border: hidden;
     border-radius: 6px;
     width: 500px;
@@ -74,7 +74,7 @@ body {
 }
 
 .box::placeholder {
-    color: var(--textbox-text-color);
+    color: var(--text-secondary-color);
 }
 
 .button {
