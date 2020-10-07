@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import '../Public.css'
 function Home() {
-    const [userAccount,setUserAccount] = useState(false)
+    const [userAccount,setUserAccount] = useState(true)
     const [user, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -16,10 +16,13 @@ function Home() {
     const handleChange_password =(event)=>{
         setPassword(event.target.value)
     }
-    const handleChange_confirmPassword =(event)=>{
+    const handleChange_confirmPassword = (event)=>{
         checkPassword(event.target.value)
-        if(confirm_password == password)
-            setUserAccount(true);
+        console.log("password",password);
+        console.log("confirm password",confirm_password)  
+        if(confirm_password == password){
+            setUserAccount(true); 
+        }
         console.log("userAccount :", userAccount);
     }
     const SetUserInformation =()=>{
