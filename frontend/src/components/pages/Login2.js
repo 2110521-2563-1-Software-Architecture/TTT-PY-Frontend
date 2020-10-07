@@ -21,7 +21,7 @@ export class Login2 extends Component {
                             Sign In
                         </div>
 
-                        <input type="email" id="email" className="row box" placeholder="Email" value={this.state.email}
+                        <input type="email" id="email" className="row box" placeholder="Email Address" value={this.state.email}
                         onChange={(e) => {
                             this.setState({ email: e.target.value });}}
                         style={{ marginTop: "20px", marginBottom: "20px", marginLeft: "100px" }} required></input>

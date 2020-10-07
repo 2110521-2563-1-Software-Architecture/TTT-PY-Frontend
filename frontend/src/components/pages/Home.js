@@ -57,7 +57,7 @@ function Home() {
           }}
         ></input>
         <input
-          type="text"
+          type="email"
           className="box"
           placeholder="Email"
           onChange={handleChange_email}
@@ -68,7 +68,7 @@ function Home() {
           }}
         ></input>
         <input
-          type="text"
+          type="password"
           className="box"
           placeholder="Password"
           onChange={handleChange_password}
@@ -79,7 +79,7 @@ function Home() {
           }}
         ></input>
         <input
-          type="text"
+          type="password"
           className="box"
           placeholder="Confirm Password"
           onChange={handleChange_confirmPassword}
