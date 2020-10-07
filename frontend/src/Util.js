@@ -33,7 +33,6 @@ const Util = {
         email,
         password
       }),
-      // body: {"username": "tangtai2"}
     });
     console.log("username ",username)
     console.log(response)

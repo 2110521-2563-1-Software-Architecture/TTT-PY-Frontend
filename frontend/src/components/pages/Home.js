@@ -23,16 +23,17 @@ function Home() {
         if (confirm_password == password) setUserAccount(true);
         console.log("userAccount :", userAccount);
     };
-    const SetUserInformation = () => {
+    const SetUserInformation = async() => {
         if (confirm_password != password) {
             alert("password and confirm password must be the same");
             setUserAccount(false);
         } else {
             setUserAccount(true);
-            let data = Util.register(user, email, password)
+            let data = await Util.register(user, email, password)
+            console.log("data");
             console.log(data);
-            if (data.errmsg) {
-                window.alert(data.errmsg);
+            if(data) {
+                window.alert(data.message);
             } else {
                 history.push(`/login`);
             }
