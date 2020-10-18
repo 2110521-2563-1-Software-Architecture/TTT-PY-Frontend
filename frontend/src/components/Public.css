@@ -61,6 +61,22 @@ body {
     color: var(--text-primary-color);
 }
 
+.profile-title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 72px;
+    line-height: 88px;
+    color: var(--text-primary-color);
+}
+
+.profile-data {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 20px;
+    color: var(--text-primary-color);
+}
+
 .box {
     background: var(--textbox-bg-color);
     color: var(--text-primary-color);
@@ -102,4 +118,11 @@ body {
     line-height: 40px;
     text-align: center;
     cursor: pointer;
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
 }
