@@ -2,12 +2,15 @@ import React, { useState, useEffect } from "react";
 import history from "../../History";
 import Util from "../../Util";
 import "../Public.css";
+import { useHistory } from "react-router-dom";
+
 function Home() {
     const [userAccount, setUserAccount] = useState(false);
     const [user, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirm_password, checkPassword] = useState("");
+    const history = useHistory();
     const handleChange_user = (event) => {
         setUsername(event.target.value);
     };

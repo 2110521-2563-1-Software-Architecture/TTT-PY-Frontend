@@ -17,7 +17,7 @@ function Login() {
         // let data = Util.login(email,password)
         // localStorage.setItem('token', data.token);
         // setJwt(data.token);
-        history.push("/chat")
+        history.push(`/chat`);
     }
     return (
         <div className="background-color">
