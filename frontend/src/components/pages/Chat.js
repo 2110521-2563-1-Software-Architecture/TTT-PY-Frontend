@@ -1,6 +1,7 @@
 import React from 'react'
 import FriendList from '../FriendList'
 import FriendProfile from '../FriendProfile'
+import MyProfile from '../MyProfile'
 
 function Chat() {
     return (
@@ -9,7 +10,7 @@ function Chat() {
                 <FriendList/>
             </div>
             <div className='col-md-8'>
-                <FriendProfile/>
+                <MyProfile/>
             </div>
         </div>
     )
