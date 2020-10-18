@@ -54,7 +54,8 @@ export class Login2 extends Component {
             console.log(data.data.token)
             console.log(JSON.stringify(user))
             localStorage.setItem("token", data.data.token);
-            //localStorage.setItem("user", JSON.stringify(user));
+            localStorage.setItem("user", JSON.stringify(user));
+            localStorage.setItem("isSignIn",true)
             history.push("/chat");
         }
     };

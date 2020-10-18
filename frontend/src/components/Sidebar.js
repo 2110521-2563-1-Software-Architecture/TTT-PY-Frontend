@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './Sidebar.css';
 import { Link } from 'react-router-dom';
 function Sidebar() {
-  const [isSignIn, setSignIn] = useState(false);
+  const [isSignIn, setSignIn] = localStorage.getItem("isSignIn")
   return (
     <div className="sidebar">
       <div className="sidebar-container">

@@ -10,6 +10,7 @@ import Setting from './components/pages/Setting';
 import Chat from './components/pages/Chat';
 
 function App() {
+  localStorage.setItem("isSignIn",false);
   return (
     <>
       <Router>
