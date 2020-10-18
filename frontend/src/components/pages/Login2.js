@@ -1,13 +1,13 @@
 import React, { useState, useEffect, Component } from 'react'
 import '../Public.css';
 import Util from "../../Util";
-// import { useHistory } from "react-router-dom";
+import history from "../../History";
 export class Login2 extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            email: "",
+            user: "",
             password: "",
         };
         this.onClickLogin = this.onClickLogin.bind(this);
@@ -22,9 +22,9 @@ export class Login2 extends Component {
                             Sign In
                         </div>
 
-                        <input type="text" id="email" className="row box" placeholder="Email Address" value={this.state.email}
+                        <input type="text" id="username" className="row box" placeholder="username Address" value={this.state.user}
                         onChange={(e) => {
-                            this.setState({ email: e.target.value });}}
+                            this.setState({ user: e.target.value });}}
                         style={{ marginTop: "20px", marginBottom: "20px", marginLeft: "100px" }} required></input>
 
                         <input type="password" id="password" className="row box" placeholder="Password" value={this.state.password}
@@ -42,19 +42,20 @@ export class Login2 extends Component {
     }
     onClickLogin = async (event) => {
         event.preventDefault();
-        let email = this.state.email;
+        let user = this.state.user;
         let password = this.state.password;
-        let data = await Util.login(email, password);
-        await console.log(data);
-        alert(password);
-        if (data.errmsg) {
-            window.alert(data.errmsg);
+        let data = await Util.login(user, password);
+        //await console.log(data);
+        if(data.message) {
+            window.alert(data.message);
             this.setState({ password: "" });
         } else {
-            localStorage.setItem("token", data.token);
-            localStorage.setItem("user", JSON.stringify(data.user));
-            // this.history.push("/chat");
-            window.location.reload();
+            console.log("token")
+            console.log(data.data.token)
+            console.log(JSON.stringify(user))
+            localStorage.setItem("token", data.data.token);
+            //localStorage.setItem("user", JSON.stringify(user));
+            history.push("/chat");
         }
     };
 
