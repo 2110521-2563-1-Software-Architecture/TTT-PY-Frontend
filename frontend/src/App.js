@@ -26,10 +26,10 @@ class App extends Component {
           <Switch>
             <Route path='/' exact component={Home} />
             <Route path='/login2' component={Login2} />
-            <Route path={isSignIn == "true"?'/Setting':'/NotFound'} component={Setting} />
-            <Route path={isSignIn == "true"?'/chat':'/NotFound'} component={Chat} />
-            <Route path={isSignIn == "true"?'/friend':'/NotFound'} component={Friend} />
-            <Route path={isSignIn == "true"?'/MyProfile':'/NotFound'} component={MyProfile} />
+            <Route path='/Setting' component={isSignIn=='true'?Setting:Login2} />
+            <Route path='/chat' component={isSignIn=='true'?Chat:Login2} />
+            <Route path='/friend' component={isSignIn=='true'?Friend:Login2} />
+            <Route path='/MyProfile' component={isSignIn=='true'?MyProfile:Login2} />
             <Route component={NotFound} />
           </Switch>
         </Router>
