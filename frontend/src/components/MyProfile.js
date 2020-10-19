@@ -10,28 +10,28 @@ export class MyProfile extends Component {
             // let data = Util.login(email,password)
             // localStorage.setItem('token', data.token);
             // setJwt(data.token);
-            localStorage.setItem('isSignIn','false')
+            localStorage.setItem('isSignIn', 'false')
             history.push(`/Login2`);
             window.location.reload();
         }
         return (
-            <div className="background-color">
+            <div className="background-color" style={{ paddingLeft: '100px' }}>
                 <div style={{ paddingTop: "100px" }}>
-                    <img className="profile-image" src="userimage.jpeg"/>
+                    <img className="profile-image" src="userimage.jpeg" />
                 </div>
                 <div className="profile-title">
                     Username
                 </div>
-                <div className="profile-data" style={{marginBottom:'20px'}}>
+                <div className="profile-data" style={{ marginBottom: '50px' }}>
                     Email : pluem@pluem.com
                 </div>
-                <div className="button" style={{marginBottom:'20px'}}>
+                <div className="button" style={{ marginBottom: '20px' }}>
                     Edit Profile
                 </div>
                 <div className="button" onClick={logout}>
                     Sign Out
                 </div>
-        </div>
+            </div>
         );
     }
 }

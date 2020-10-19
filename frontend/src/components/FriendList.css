@@ -1,51 +1,50 @@
 .friend-list-header{
     /* background-color: black; */
-    width: 24%;
+    /*width: 24%;*/
     height: 20%;
     padding: 1%;
 }
 
 .friend-list-container{
-    /* overflow: auto; */
-    height: 70%;
-    width: 30%;
+    /*overflow: auto;*/
+    height: 90%;
+    /*width: 30%;*/
     overflow-y: scroll;
 }
 .friend-box:hover {
     background-color:var(--selected-color);
-    width:21%;
     transition: all 0.2s ease-out;
     border-radius: 5px;
+    text-decoration: none;
 }
-.friend-list{
-    display: block;
-    padding-bottom: 19%;
-    width: 21%;
-}
+
 .friend-box {
-    display: grid;
-    grid-template-columns: 25% auto;
-    position: fixed;
-    width: 21%;
-    height: 80px;
+    /*display: grid;*/
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    /*grid-template-columns: 25% auto;*/
+    /*position: fixed;*/
+    /*width: 21%;*/
+    /*height: 80px;*/
     /* background-color: black; */
-    padding: 0.7vw;
+    /*padding: 0.7vw;*/
     /* border-style: groove; */
     /* border-color: rgb(214, 218, 219); */
-
 }
 
 .friend-image {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    object-fit: cover;
+    /*object-fit: cover;*/
 }
 
 .friend-name {
     /* background-color: royalblue; */
-    font-size: 20px;
-    width: 80%;
-    margin: 6%;
+    font-size: 16px;
+    font-weight: bold;
+    /*width: 80%;*/
+    /*margin: 6%;*/
     color: var(--text-primary-color);
 }

@@ -44,7 +44,7 @@ export class Sidebar extends Component {
           <div className="sidebar-container">
             <div className="nav-menu">
               <div className='nav-item'>
-                <Link to='/' className='nav-links'>
+                <Link to='/Friend' className='nav-links'>
                   <div className='nav-text'>Home</div>
                 </Link>
               </div>

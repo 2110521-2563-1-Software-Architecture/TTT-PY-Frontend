@@ -8,6 +8,8 @@ import Login from './components/pages/Login';
 import Login2 from './components/pages/Login2';
 import Setting from './components/pages/Setting';
 import Chat from './components/pages/Chat';
+import Friend from './components/pages/Friend';
+import MyProfile from './components/MyProfile';
 
 class App extends Component {
   render() {
@@ -25,7 +27,8 @@ class App extends Component {
             <Route path='/login2' component={Login2} />
             <Route path='/Setting' component={Setting} />
             <Route path='/chat' component={Chat} />
-            <Route path='/MyProfile' component={Chat} />
+            <Route path='/friend' component={Friend} />
+            <Route path='/MyProfile' component={MyProfile} />
           </Switch>
         </Router>
       </div>
