@@ -25,7 +25,7 @@ function Home() {
         if (confirm_password == password) setUserAccount(true);
         console.log("userAccount :", userAccount);
     };
-    const SetUserInformation = async() => {
+    const SetUserInformation = async () => {
         if (confirm_password != password) {
             alert("password and confirm password must be the same");
             setUserAccount(false);
@@ -34,7 +34,7 @@ function Home() {
             let data = await Util.register(user, email, password)
             console.log("data");
             console.log(data);
-            if(data) {
+            if (data) {
                 window.alert(data.message);
             } else {
                 history.push(`/login`);
@@ -47,17 +47,16 @@ function Home() {
         // call API from back and link to login
     };
     return (
-        <div className="background-color">
+        <div className="row background-color">
             <div
                 className="title"
-                style={{ paddingTop: "100px", paddingLeft: "100px" }}
-            >
+                style={{ paddingTop: "100px", paddingLeft: "100px" }}>
                 Welcome
-      </div>
+            </div>
             <div style={{ width: "700px" }}>
                 <input
                     type="text"
-                    className="box"
+                    className="row box"
                     placeholder="username"
                     onChange={handleChange_user}
                     style={{
@@ -68,7 +67,7 @@ function Home() {
                 ></input>
                 <input
                     type="email"
-                    className="box"
+                    className="row box"
                     placeholder="Email"
                     onChange={handleChange_email}
                     style={{
@@ -79,7 +78,7 @@ function Home() {
                 ></input>
                 <input
                     type="password"
-                    className="box"
+                    className="row box"
                     placeholder="Password"
                     onChange={handleChange_password}
                     style={{
@@ -90,7 +89,7 @@ function Home() {
                 ></input>
                 <input
                     type="password"
-                    className="box"
+                    className="row box"
                     placeholder="Confirm Password"
                     onChange={handleChange_confirmPassword}
                     style={{

@@ -21,7 +21,7 @@ function Login() {
     }
     return (
         <div className="background-color">
-            <div className="title" style={{paddingTop:"140px",paddingLeft:"100px"}}>
+            <div className="title" style={{paddingTop:"100px",paddingLeft:"100px"}}>
                 Sign In
             </div>
             <input type="email" className="box" placeholder="Email Address" onChange={handleChange_email} style={{ marginTop: "20px", marginBottom: "20px", marginLeft: "100px" }}></input>

@@ -1,8 +1,11 @@
 import React, { useState, useEffect, Component } from "react";
 import "../Public.css";
 import Util from "../../Util";
-import history from "../../history";
+import history from "../../History";
+import { useHistory } from "react-router-dom";
+
 export class Login2 extends Component {
+
   constructor(props) {
     super(props);
 
@@ -13,6 +16,7 @@ export class Login2 extends Component {
     this.onClickLogin = this.onClickLogin.bind(this);
     // const history = useHistory();
   }
+
   render() {
     return (
       <div className="row">
@@ -20,7 +24,7 @@ export class Login2 extends Component {
           <div className="background-color">
             <div
               className="title"
-              style={{ paddingTop: "200px", paddingLeft: "100px" }}
+              style={{ paddingTop: "100px", paddingLeft: "100px" }}
             >
               Sign In
             </div>
@@ -29,7 +33,7 @@ export class Login2 extends Component {
               type="text"
               id="username"
               className="row box"
-              placeholder="username Address"
+              placeholder="Username"
               value={this.state.user}
               onChange={(e) => {
                 this.setState({ user: e.target.value });
@@ -58,7 +62,6 @@ export class Login2 extends Component {
               }}
               required
             ></input>
-
             <button
               className="button"
               id="submit"
@@ -91,8 +94,9 @@ export class Login2 extends Component {
       console.log(JSON.stringify(user));
       localStorage.setItem("token", data.data.token);
       localStorage.setItem("user", JSON.stringify(user));
-      localStorage.setItem("isSignIn", true);
+      localStorage.setItem("isSignIn", 'true');
       history.push(`/chat`);
+      window.location.reload();
     }
   };
 
