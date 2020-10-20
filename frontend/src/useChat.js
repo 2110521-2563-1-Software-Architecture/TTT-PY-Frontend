@@ -3,7 +3,7 @@ import socketIOClient from "socket.io-client";
 
 const GET_THE_PAST_MESSAGES = "getThePastMessage";
 const NEW_CHAT_MESSAGE_EVENT = "newChatMessage"; // Name of the event
-const SOCKET_SERVER_URL = "http://localhost:4000";
+const SOCKET_SERVER_URL = "http://localhost:8081";
 const useChat = (roomId) => {
   const [messages, setMessages] = useState([]); // Sent and received messages
   const socketRef = useRef();
