@@ -11,7 +11,7 @@ export class MyProfile extends Component {
             // localStorage.setItem('token', data.token);
             // setJwt(data.token);
             localStorage.setItem('isSignIn', 'false')
-            history.push(`/Login2`);
+            history.push(`/Login`);
             window.location.reload();
         }
         return (

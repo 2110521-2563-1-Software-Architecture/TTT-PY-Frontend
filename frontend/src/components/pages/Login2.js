@@ -91,9 +91,9 @@ export class Login2 extends Component {
     } else {
       console.log("token");
       console.log(data.data.token);
-      console.log(JSON.stringify(user));
+      console.log(user);
       localStorage.setItem("token", data.data.token);
-      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("user", user);
       localStorage.setItem("isSignIn", 'true');
       history.push(`/MyProfile`);
       window.location.reload();
