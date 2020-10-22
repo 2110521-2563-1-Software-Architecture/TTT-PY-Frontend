@@ -1,4 +1,5 @@
 import React from 'react'
+import ChatRoomComponent from '../ChatRoomComponent'
 import FriendList from '../FriendList'
 import FriendProfile from '../FriendProfile'
 import MyProfile from './MyProfile'
@@ -10,7 +11,7 @@ function Chat() {
                 <FriendList/>
             </div>
             <div className='col-md-8'>
-                <MyProfile/>
+                <ChatRoomComponent/>
             </div>
         </div>
     )
