@@ -30,7 +30,7 @@ export class Sidebar extends Component {
             </div>
           </div>
           <div className="user container-fluid" style={{}}>
-            <Link to={'/Login'} className="row user-row" style={{}}>
+            <Link to={isSignIn?'/MyProfile':'/Login'} className="row user-row" style={{}}>
               <div className="col-md-4" style={{}}>
                 <img className="user-image" style={{}} src="user_icon.png" />
               </div>

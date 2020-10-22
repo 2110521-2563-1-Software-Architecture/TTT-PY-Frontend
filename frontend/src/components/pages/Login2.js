@@ -84,17 +84,33 @@ export class Login2 extends Component {
     let user = this.state.user;
     let password = this.state.password;
     let data = await Util.login(user, password);
-    //await console.log(data);
+    
+
     if (data.message) {
+      //get error message from backend
       window.alert(data.message);
       this.setState({ password: "" });
     } else {
+
+      // login success
+
+      //check information
       console.log("token");
       console.log(data.data.token);
       console.log(user);
+
+      // add user in formation to user storage
+      localStorage.setItem("isSignIn", 'true');
       localStorage.setItem("token", data.data.token);
       localStorage.setItem("user", user);
-      localStorage.setItem("isSignIn", 'true');
+
+      // get email from backend
+      let userInformation = await Util.getUser(user)
+      let email = userInformation.data.email;
+      localStorage.setItem("email",email);
+      console.log(email);
+
+      //change to Profile Page
       history.push(`/MyProfile`);
       window.location.reload();
     }

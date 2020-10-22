@@ -9,7 +9,7 @@ import Login2 from './components/pages/Login2';
 import Setting from './components/pages/Setting';
 import Chat from './components/pages/Chat';
 import Friend from './components/pages/Friend';
-import MyProfile from './components/MyProfile';
+import MyProfile from './components/pages/MyProfile';
 import NotFound from './components/pages/NotFound';
 
 class App extends Component {

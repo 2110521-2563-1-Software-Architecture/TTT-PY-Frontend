@@ -58,6 +58,9 @@ const Util = {
     const response = await fetch(URL, {
       method: "GET",
       mode: "cors",
+      headers: {
+        'Authorization' : localStorage.getItem('token'),
+      },
       });
     console.log(response);
     if (response.status == 400) return response.json();

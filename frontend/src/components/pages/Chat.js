@@ -1,7 +1,7 @@
 import React from 'react'
 import FriendList from '../FriendList'
 import FriendProfile from '../FriendProfile'
-import MyProfile from '../MyProfile'
+import MyProfile from './MyProfile'
 
 function Chat() {
     return (
