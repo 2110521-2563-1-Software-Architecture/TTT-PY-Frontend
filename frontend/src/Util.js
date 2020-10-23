@@ -1,5 +1,5 @@
 const Util = {
-  login: async (email, password) => {
+  login: async (username, password) => {
     const URL = `http://localhost:8081/auth/login`;
     const response = await fetch(URL, {
       method: "POST",
@@ -8,11 +8,12 @@ const Util = {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ username, password }),
     });
     console.log(response.status);
-    if (response.status == 500) return response.json();
-    if (response.status == 200) return response.json();
+    return response.json();
+    // if (response.status == 500) return response.json();
+    // if (response.status == 200) return response.json();
   },
 
   register: async (
@@ -57,6 +58,9 @@ const Util = {
     const response = await fetch(URL, {
       method: "GET",
       mode: "cors",
+      headers: {
+        'Authorization' : localStorage.getItem('token'),
+      },
       });
     console.log(response);
     if (response.status == 400) return response.json();
