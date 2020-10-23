@@ -1,8 +1,6 @@
 import React from 'react'
 import ChatRoomComponent from '../ChatRoomComponent'
 import FriendList from '../FriendList'
-import FriendProfile from '../FriendProfile'
-import MyProfile from './MyProfile'
 
 function Chat() {
     return (
