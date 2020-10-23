@@ -3,32 +3,33 @@ import socketIOClient from "socket.io-client";
 
 const GET_THE_PAST_MESSAGES = "getThePastMessage";
 const NEW_CHAT_MESSAGE_EVENT = "newChatMessage"; // Name of the event
+const ERROR_EVENT = "errorEvent";
+
 const SOCKET_SERVER_URL = "http://localhost:8081";
-const useChat = (roomId) => {
+const useChat = (token, roomId) => {
   const [messages, setMessages] = useState([]); // Sent and received messages
+  const [error, setError] = useState(null);
   const socketRef = useRef();
 
   useEffect(() => {
+    setError(null);
     // Creates a WebSocket connection
     socketRef.current = socketIOClient(SOCKET_SERVER_URL, {
       query: { roomId },
     });
-
-    socketRef.current.emit(GET_THE_PAST_MESSAGES);
+    console.log(socketRef.current);
 
     socketRef.current.on(GET_THE_PAST_MESSAGES, (messages) => {
-      console.log(GET_THE_PAST_MESSAGES);
-      console.log(messages);
       setMessages(messages);
     });
 
     // Listens for incoming messages
     socketRef.current.on(NEW_CHAT_MESSAGE_EVENT, (message) => {
-      const incomingMessage = {
-        ...message,
-        ownedByCurrentUser: message.senderId === socketRef.current.id,
-      };
-      setMessages((messages) => [...messages, incomingMessage]);
+      setMessages((messages) => [...messages, message]);
+    });
+
+    socketRef.current.on(ERROR_EVENT, (error) => {
+      if (error.token === token) setError(error.message);
     });
 
     // Destroys the socket reference
@@ -41,13 +42,14 @@ const useChat = (roomId) => {
   // Sends a message to the server that
   // forwards it to all users in the same room
   const sendMessage = (messageBody) => {
-    socketRef.current.emit(NEW_CHAT_MESSAGE_EVENT, {
-      body: messageBody,
-      senderId: socketRef.current.id,
-    });
+    socketRef.current.emit(NEW_CHAT_MESSAGE_EVENT, messageBody);
   };
 
-  return { messages, sendMessage };
+  const getPastMessages = (token) => {
+    socketRef.current.emit(GET_THE_PAST_MESSAGES, { token });
+  };
+
+  return { messages, sendMessage, getPastMessages, error };
 };
 
 export default useChat;
