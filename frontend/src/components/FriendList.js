@@ -23,7 +23,13 @@ export class FriendList extends Component {
           <FriendListHeader amount={this.state.friend_list.length} />
           <div class="friend-list-container">
             {this.state.friend_list.map((friend) => {
-              return <Friend key={friend.username} friend={friend} />;
+              return (
+                <Friend
+                  key={friend.username}
+                  friend={friend}
+                  selectFriend={this.props.selectFriend}
+                />
+              );
             })}
           </div>
         </div>
@@ -91,7 +97,11 @@ class Friend extends Component {
   render() {
     return (
       <div>
-        <div className="row friend-box" style={{ marginLeft: "15px" }}>
+        <div
+          className="row friend-box"
+          style={{ marginLeft: "15px" }}
+          onClick={() => this.props.selectFriend(this.props.friend.username)}
+        >
           <div className="col-md-4" style={{ width: "100%", margin: "auto" }}>
             <img className="friend-image " src={"userimage.jpeg"} />
           </div>

@@ -50,6 +50,9 @@ const Util = {
   },
 
   getUser: async (username) => {
+    if (!username) {
+      return { err: "Invlid input" };
+    }
     const URL = `http://localhost:8081/user/search?username=${username}`;
     const response = await fetch(URL, {
       method: "GET",
@@ -59,8 +62,10 @@ const Util = {
       },
     });
     console.log(response);
-    if (response.status == 400) return response.json();
     if (response.status == 200) return response.json();
+    else {
+      return { err: response.message };
+    }
   },
 
   getFriend: async () => {
