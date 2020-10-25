@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import ChatRoomComponent from "../ChatRoomComponent";
 import ChatRoomList from "../ChatRoomList";
 
 function Chat() {
+  const [chatRoom, setChatRoom] = useState(0);
+  function onSelectChatroom(chatRoom) {
+    console.log(chatRoom);
+    setChatRoom(chatRoom);
+  }
   return (
     <div className="row">
       <div className="col-md-4">
-        <ChatRoomList />
+        <ChatRoomList selectChatRoom={onSelectChatroom} />
       </div>
       <div className="col-md-8">
-        <ChatRoomComponent />
+        <ChatRoomComponent selectedChatRoom={chatRoom} />
       </div>
     </div>
   );

@@ -27,7 +27,13 @@ export class ChatRoomList extends Component {
           <ChatRoomListHeader />
           <div class="friend-list-container">
             {this.state.chatroom_list.map((chatroom) => {
-              return <ChatRoom key={ChatRoom.chatRoomID} ChatRoom={chatroom} />;
+              return (
+                <ChatRoom
+                  key={ChatRoom.chatRoomID}
+                  ChatRoom={chatroom}
+                  selectChatRoom={this.props.selectChatRoom}
+                />
+              );
             })}
           </div>
         </div>
@@ -103,7 +109,13 @@ class ChatRoom extends Component {
   render() {
     return (
       <div>
-        <div className="row friend-box" style={{ marginLeft: "15px" }}>
+        <div
+          className="row friend-box"
+          style={{ marginLeft: "15px" }}
+          onClick={() =>
+            this.props.selectChatRoom(this.props.ChatRoom.chatRoomID)
+          }
+        >
           <div className="col-md-4" style={{ width: "100%", margin: "auto" }}>
             <img className="friend-image " src={"userimage.jpeg"} />
           </div>
