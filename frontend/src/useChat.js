@@ -15,9 +15,8 @@ const useChat = (token, roomId) => {
     setError(null);
     // Creates a WebSocket connection
     socketRef.current = socketIOClient(SOCKET_SERVER_URL, {
-      query: { roomId },
+      query: { roomId, token },
     });
-    console.log(socketRef.current);
 
     socketRef.current.on(GET_THE_PAST_MESSAGES, (messages) => {
       setMessages(messages);
@@ -28,8 +27,9 @@ const useChat = (token, roomId) => {
       setMessages((messages) => [...messages, message]);
     });
 
-    socketRef.current.on(ERROR_EVENT, (error) => {
-      if (error.token === token) setError(error.message);
+    socketRef.current.on(ERROR_EVENT, (message) => {
+      setError(message);
+      setMessages([]);
     });
 
     // Destroys the socket reference
