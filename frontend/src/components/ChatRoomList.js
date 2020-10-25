@@ -8,23 +8,22 @@ export class ChatRoomList extends Component {
 
     this.state = {
       chatroom_list: [
-        {
-          chatRoomID: 1,
-          username: "Usergfgfg1",
-        },
-        {
-          chatRoomID: 2,
-          username: "Usergfgfg1",
-        },
+        // {
+        //   chatRoomID: 1,
+        //   username: "Usergfgfg1",
+        // },
+        // {
+        //   chatRoomID: 2,
+        //   username: "Usergfgfg1",
+        // },
       ],
-      amounts: 12,
     };
   }
   render() {
     return (
       <div className="row">
         <div className="col-md-12">
-          <ChatRoomListHeader count={this.state.chatroom_list.length} />
+          <ChatRoomListHeader amount={this.state.chatroom_list.length} />
           <div class="friend-list-container">
             {this.state.chatroom_list.map((chatroom) => {
               return (
@@ -76,7 +75,7 @@ class ChatRoomListHeader extends Component {
                   color: "var(--text-secondary-color)",
                 }}
               >
-                {this.props.count} chatrooms
+                {this.props.amount} chatrooms
               </div>
             </div>
             <div

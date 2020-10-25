@@ -68,10 +68,12 @@ const Util = {
     const response = await fetch(URL, {
       method: "GET",
       mode: "cors",
+      headers: {
+        Authorization: localStorage.getItem("token"),
+      },
     });
-    console.log(response);
-    if (response.status == 400) return response.json();
     if (response.status == 200) return response.json();
+    else return { err: response.message };
   },
 
   addFriend: async (username) => {
