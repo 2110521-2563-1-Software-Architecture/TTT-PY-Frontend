@@ -103,6 +103,7 @@ const Util = {
   },
   getChatRoomByID: async (id) => {
     console.log(id);
+    if (!id) return { err: "invalid input" }; //Please Edit Here
     const URL = `http://localhost:8081/chat/room/${id}`;
     const response = await fetch(URL, {
       method: "GET",
@@ -111,7 +112,6 @@ const Util = {
         Authorization: localStorage.getItem("token"),
       },
     });
-    console.log(response);
     if (response.status == 200) return response.json();
     else return { err: response.message };
   },

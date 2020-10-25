@@ -11,7 +11,6 @@ import Chat from "./components/pages/Chat";
 import Friend from "./components/pages/Friend";
 import MyProfile from "./components/pages/MyProfile";
 import NotFound from "./components/pages/NotFound";
-import ChatTest from "./components/pages/ChatTest";
 
 class App extends Component {
   render() {
@@ -42,7 +41,6 @@ class App extends Component {
               path="/MyProfile"
               component={isSignIn == "true" ? MyProfile : Login2}
             />
-            <Route path="/chattest" component={ChatTest} />
             <Route component={NotFound} />
           </Switch>
         </Router>

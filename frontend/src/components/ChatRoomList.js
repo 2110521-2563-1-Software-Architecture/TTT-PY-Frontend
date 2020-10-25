@@ -24,7 +24,7 @@ export class ChatRoomList extends Component {
     return (
       <div className="row">
         <div className="col-md-12">
-          <ChatRoomListHeader />
+          <ChatRoomListHeader count={this.state.chatroom_list.length} />
           <div class="friend-list-container">
             {this.state.chatroom_list.map((chatroom) => {
               return (
@@ -51,8 +51,7 @@ export class ChatRoomList extends Component {
         return {
           chatRoomID,
           username:
-            (username1 === localStorage.getItem("token") && username1) ||
-            username2,
+            username1 === localStorage.getItem("user") ? username2 : username1,
         };
       });
       console.log(chatRoomList);
@@ -77,7 +76,7 @@ class ChatRoomListHeader extends Component {
                   color: "var(--text-secondary-color)",
                 }}
               >
-                12 chatrooms
+                {this.props.count} chatrooms
               </div>
             </div>
             <div
