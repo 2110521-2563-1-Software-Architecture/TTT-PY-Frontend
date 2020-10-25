@@ -5,7 +5,6 @@ import ChatRoomList from "../ChatRoomList";
 function Chat() {
   const [chatRoom, setChatRoom] = useState(0);
   function onSelectChatroom(chatRoom) {
-    console.log(chatRoom);
     setChatRoom(chatRoom);
   }
   return (

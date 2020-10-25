@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Util from "../Util";
 import "./ChatRoom.css";
 
 class ChatRoomComponent extends Component {
@@ -6,13 +7,17 @@ class ChatRoomComponent extends Component {
     super(props);
 
     this.state = {
+      chatRoomID: 0,
       inputMessage: "",
       message: [{ user: "tangtai", message: "hello" }],
     };
     this.sendMessage = this.sendMessage.bind(this);
   }
-  componentDidMount() {
-    console.log(this.props.selectedChatRoom);
+  async componentDidMount() {
+    // this.setState({ props });
+    // console.log(this.props.selectedChatRoom);
+    // var chatRoom = await Util.getChatRoomByID(this.props.selectedChatRoom);
+    // console.log(chatRoom);
   }
 
   sendMessage() {
@@ -24,9 +29,7 @@ class ChatRoomComponent extends Component {
     console.log(this.state.message);
   }
   render() {
-    return !this.props.selectedChatRoom ? (
-      <div className="container"></div>
-    ) : (
+    return (
       <div className="container">
         <link
           rel="stylesheet"
@@ -38,7 +41,7 @@ class ChatRoomComponent extends Component {
         <div className="header" style={{ paddingLeft: "50px" }}>
           <div className="header-name" style={{}}>
             {/* friend's name */}
-            {this.props.selectedChatRoom}
+            {this.props.selectedChatRoom || "Please Edit Here"}
           </div>
         </div>
         {/* main area */}

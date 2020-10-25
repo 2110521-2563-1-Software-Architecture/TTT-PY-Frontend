@@ -101,6 +101,20 @@ const Util = {
     if (response.status == 200) return response.json();
     else return { err: response.message };
   },
+  getChatRoomByID: async (id) => {
+    console.log(id);
+    const URL = `http://localhost:8081/chat/room/${id}`;
+    const response = await fetch(URL, {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        Authorization: localStorage.getItem("token"),
+      },
+    });
+    console.log(response);
+    if (response.status == 200) return response.json();
+    else return { err: response.message };
+  },
 };
 
 export default Util;
