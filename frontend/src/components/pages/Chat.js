@@ -10,7 +10,7 @@ function Chat() {
   }
   return (
     <div className="row">
-      <div className="col-md-4">
+      <div className="col-md-4" style={{maxWidth:'350px', borderRight: '2px solid var(--bg-secondary-color)'}}>
         <ChatRoomList selectChatRoom={onSelectChatroom} />
       </div>
       <div className="col-md-8">

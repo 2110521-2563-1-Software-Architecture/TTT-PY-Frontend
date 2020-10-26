@@ -2,13 +2,14 @@
     --bg-primary-color: #FFFFFF;
     --bg-secondary-color: #F2F2F2;
     --text-primary-color: #000000;
-    --text-secondary-color: #CDCDCD;
+    --text-secondary-color: #898989;
     --button-bg-color: #181818;
     --button-text-color: #FFFFFF;
     --selected-color: rgba(219,219,219,0.8);
     --textbox-bg-color: #F1F1F1;
     --textbox-text-color: #898989;
     --transparent-color: rgba(0,0,0,0);
+    --chat-font-color: #90EE90;
   }
   
   @media (prefers-color-scheme: dark) {
@@ -23,6 +24,7 @@
         --textbox-bg-color: #292929;
         --textbox-text-color: #CECECE;
         --transparent-color: rgba(0,0,0,0);
+        --chat-font-color: #2E8B57;
     }
   }
 

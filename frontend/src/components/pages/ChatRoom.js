@@ -81,20 +81,36 @@ const ChatRoom = (props) => {
         <div>
           <ol>
             {messages.map((message, i) => {
-              return (
-                <li
-                  key={i}
-                  style={{
-                    color:
-                      message.usernameSender === localStorage.getItem("user")
-                        ? "blue"
-                        : "orange",
-                  }}
-                >
-                  {message.messageText}
-                </li>
-              );
-            })}
+              //return (
+              //  <li
+              //    key={i}
+              //    className='button'
+              //    style={{
+              //      color:
+              //        message.usernameSender === localStorage.getItem("user")
+              //          ? "red"
+              //          : "orange",
+              //    }}
+              //  >
+              //    {message.messageText}
+              //  </li>
+              //);
+              if (message.usernameSender === localStorage.getItem("user")) {
+                return (
+                  <div className='message-chat' style={{margin: '10px', background: 'var(--chat-font-color)', marginLeft: 'auto'}}>
+                    {message.messageText}
+                  </div>
+                )
+              }
+              else {
+                return (
+                  <div className='message-chat' style={{margin: '10px', marginRight: 'auto'}}>
+                    {message.messageText}
+                  </div>
+                )
+              }
+            })
+            }
           </ol>
         </div>
       </div>
