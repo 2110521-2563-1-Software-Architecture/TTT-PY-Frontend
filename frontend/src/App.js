@@ -10,6 +10,7 @@ import Setting from "./components/pages/Setting";
 import Chat from "./components/pages/Chat";
 import Friend from "./components/pages/Friend";
 import MyProfile from "./components/pages/MyProfile";
+import AddFriend from "./components/pages/AddFriend";
 import NotFound from "./components/pages/NotFound";
 
 class App extends Component {
@@ -41,7 +42,10 @@ class App extends Component {
               path="/MyProfile"
               component={isSignIn == "true" ? MyProfile : Login2}
             />
-            
+            <Route
+              path="/addFriend"
+              component={isSignIn == "true" ? AddFriend : Login2}
+            />
             <Route component={NotFound} />
           </Switch>
         </Router>
