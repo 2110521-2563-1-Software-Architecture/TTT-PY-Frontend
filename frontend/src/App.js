@@ -13,12 +13,13 @@ import MyProfile from './components/pages/MyProfile';
 import NotFound from './components/pages/NotFound';
 import AddFriend from './components/pages/AddFriend';
 
-
 class App extends Component {
   render() {
-    const isSignIn = localStorage.getItem('isSignIn') ? localStorage.getItem('isSignIn') : null;
+    const isSignIn = localStorage.getItem("isSignIn")
+      ? localStorage.getItem("isSignIn")
+      : null;
     if (isSignIn == null) {
-      localStorage.setItem('isSignIn', 'false');
+      localStorage.setItem("isSignIn", "false");
     }
     return (
       <div>
@@ -37,7 +38,7 @@ class App extends Component {
           </Switch>
         </Router>
       </div>
-    )
+    );
   }
 }
 

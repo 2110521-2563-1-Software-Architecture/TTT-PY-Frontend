@@ -51,7 +51,7 @@ export class FriendList extends Component {
                 
             ]
         };
-        this.onClick = this.onClick.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
     render() {
         return (
@@ -71,7 +71,7 @@ export class FriendList extends Component {
                             <button class="btn btn-dark" style={{
                                 backgroundColor: "black", color: "white", fontWeight: "bold",
                                 fontSize: "13px", width: "100px", padding: ""
-                            }} onClick={() => this.onClick()} disabled={window.location=="http://localhost:3000/addFriend"?true:false}>Add Friend</button>
+                            }} onClick={() => this.handleClick()} disabled={window.location=="http://localhost:3000/addFriend"?true:false}>Add Friend</button>
                         </div>
                     </div>
                         
@@ -92,16 +92,16 @@ export class FriendList extends Component {
     }
 
     async componentDidMount() {
-        // console.log(window.location);
-        var response = await Util.getFriends();
-        await this.setState({
-            friend_list: response.data
-        });
-        console.log(this.state);
-
+        var friends = await Util.getFriend();
+        if (friends.err) {
+        console.log(friends.err);
+        } else {
+        this.setState({ friend_list: friends.data });
+        console.log(friends.data);
+        }
     }
 
-    onClick = () => {
+    handleClick(){
         // console.log("click");
         history.push(`/addFriend`);
         window.location.reload();

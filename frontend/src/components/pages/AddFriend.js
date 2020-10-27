@@ -43,7 +43,7 @@ export class AddFriend extends Component {
         // event.preventDefault();
         let data = await Util.addFriend(this.state.username);
         window.location.reload();
-        console.log(data);
+        // console.log(data);
     }
     handleChange(event){
         const value = event.target.value;
