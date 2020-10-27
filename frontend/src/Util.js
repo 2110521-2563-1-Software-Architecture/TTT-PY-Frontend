@@ -68,7 +68,7 @@ const Util = {
     }
   },
 
-  getFriends: async () => {
+  getFriend: async () => {
     const URL = `http://localhost:8081/friend`;
     const response = await fetch(URL, {
       method: "GET",

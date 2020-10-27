@@ -93,7 +93,7 @@ export class FriendList extends Component {
 
     async componentDidMount() {
         // console.log(window.location);
-        var response = await Util.getFriends();
+        var response = await Util.getFriend();
         await this.setState({
             friend_list: response.data
         });

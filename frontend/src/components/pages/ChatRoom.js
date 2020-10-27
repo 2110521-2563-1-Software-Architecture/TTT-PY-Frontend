@@ -4,35 +4,38 @@ import Util from "../../Util";
 
 const ChatRoom = (props) => {
   const token = localStorage.getItem("token");
-  const [roomId, setRoomId] = React.useState(props.selectedChatRoom); // Gets roomId from URL
-  const [friend, setFriend] = React.useState("");
+  const [roomId, setRoomId] = React.useState(props.selectedChatRoom.chatRoomID); // Gets roomId from URL
+  const [friend, setFriend] = React.useState(props.selectedChatRoom.username);
+
   const { messages, sendMessage, getPastMessages, error } = useChat(
     token,
-    roomId
+    roomId,
+    friend
   ); // Creates a websocket and manages messaging
   const [newMessage, setNewMessage] = React.useState(""); // Message to be sent
 
   useEffect(() => {
-    setRoomId(props.selectedChatRoom);
+    setRoomId(props.selectedChatRoom.chatRoomID);
+    setFriend(props.selectedChatRoom.username);
   }, [props.selectedChatRoom]);
 
   useEffect(() => {
     getPastMessages(token);
-    setChatRoomInfo(roomId);
+    // setChatRoomInfo(roomId);
   }, [roomId]);
 
-  const setChatRoomInfo = async (roomId) => {
-    var chatRoom = await Util.getChatRoomByID(roomId);
-    console.log(chatRoom);
-    if (chatRoom.err) {
-      console.log(chatRoom.err);
-    } else {
-      var { chatRoomID, username1, username2 } = chatRoom.data;
-      setFriend(
-        username1 === localStorage.getItem("user") ? username2 : username1
-      );
-    }
-  };
+  // const setChatRoomInfo = async (roomId) => {
+  //   var chatRoom = await Util.getChatRoomByID(roomId);
+  //   console.log(chatRoom);
+  //   if (chatRoom.err) {
+  //     console.log(chatRoom.err);
+  //   } else {
+  //     var { chatRoomID, username1, username2 } = chatRoom.data;
+  //     setFriend(
+  //       username1 === localStorage.getItem("user") ? username2 : username1
+  //     );
+  //   }
+  // };
 
   const handleNewMessageChange = (event) => {
     setNewMessage(event.target.value);
@@ -54,10 +57,6 @@ const ChatRoom = (props) => {
     }
   };
 
-  const handleRoomId = (event) => {
-    setRoomId(event.target.value);
-  };
-
   return !roomId ? (
     <div></div>
   ) : (
@@ -74,7 +73,6 @@ const ChatRoom = (props) => {
           {/* friend's name */}
           {friend}
         </div>
-        <h1 style={{ color: "red" }}>{error ? error : null}</h1>
       </div>
       {/* main area */}
       <div className="bg-chatroom">
@@ -97,20 +95,28 @@ const ChatRoom = (props) => {
               //);
               if (message.usernameSender === localStorage.getItem("user")) {
                 return (
-                  <div className='message-chat' style={{margin: '10px', background: 'var(--chat-font-color)', marginLeft: 'auto'}}>
+                  <div
+                    className="message-chat"
+                    style={{
+                      margin: "10px",
+                      background: "var(--chat-font-color)",
+                      marginLeft: "auto",
+                    }}
+                  >
                     {message.messageText}
                   </div>
-                )
-              }
-              else {
+                );
+              } else {
                 return (
-                  <div className='message-chat' style={{margin: '10px', marginRight: 'auto'}}>
+                  <div
+                    className="message-chat"
+                    style={{ margin: "10px", marginRight: "auto" }}
+                  >
                     {message.messageText}
                   </div>
-                )
+                );
               }
-            })
-            }
+            })}
           </ol>
         </div>
       </div>

@@ -1,46 +1,15 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import "./FriendList.css"; //Please Edit Here
+import useChatroom from "../useChatroom";
+
 import Util from "../Util";
 
-export class ChatRoomList extends Component {
-  constructor(props) {
-    super(props);
+function ChatRoomList(props) {
+  const token = localStorage.getItem("token");
+  const { resetRefresh, refresh, error } = useChatroom(token);
+  const [chatroomList, setChatroomList] = useState([]);
 
-    this.state = {
-      chatroom_list: [
-        // {
-        //   chatRoomID: 1,
-        //   username: "Usergfgfg1",
-        // },
-        // {
-        //   chatRoomID: 2,
-        //   username: "Usergfgfg1",
-        // },
-      ],
-    };
-  }
-  render() {
-    return (
-      <div className="row">
-        <div className="col-md-12">
-          <ChatRoomListHeader amount={this.state.chatroom_list.length} />
-          <div class="friend-list-container">
-            {this.state.chatroom_list.map((chatroom) => {
-              return (
-                <ChatRoom
-                  key={ChatRoom.chatRoomID}
-                  ChatRoom={chatroom}
-                  selectChatRoom={this.props.selectChatRoom}
-                />
-              );
-            })}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  async componentDidMount() {
+  useEffect(async () => {
     var response = await Util.getChatRooms();
     if (response.err) {
       console.log(response.err);
@@ -53,10 +22,32 @@ export class ChatRoomList extends Component {
             username1 === localStorage.getItem("user") ? username2 : username1,
         };
       });
-      console.log(chatRoomList);
-      this.setState({ chatroom_list: chatRoomList });
+      setChatroomList(chatRoomList);
     }
-  }
+  }, []);
+
+  useEffect(() => {
+    resetRefresh();
+  }, [refresh]);
+
+  return (
+    <div className="row">
+      <div className="col-md-12">
+        <ChatRoomListHeader amount={chatroomList.length} />
+        <div class="friend-list-container">
+          {chatroomList.map((chatroom) => {
+            return (
+              <ChatRoom
+                key={ChatRoom.chatRoomID}
+                ChatRoom={chatroom}
+                selectChatRoom={props.selectChatRoom}
+              />
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default ChatRoomList;
@@ -110,9 +101,10 @@ class ChatRoom extends Component {
         <div
           className="row friend-box"
           style={{ marginLeft: "15px" }}
-          onClick={() =>
-            this.props.selectChatRoom(this.props.ChatRoom.chatRoomID)
-          }
+          onClick={() => {
+            this.props.selectChatRoom(this.props.ChatRoom);
+            console.log(this.props.ChatRoom);
+          }}
         >
           <div className="col-md-4" style={{ width: "100%", margin: "auto" }}>
             <img className="friend-image " src={"userimage.jpeg"} />

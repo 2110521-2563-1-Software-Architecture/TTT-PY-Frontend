@@ -6,7 +6,8 @@ const NEW_CHAT_MESSAGE_EVENT = "newChatMessage"; // Name of the event
 const ERROR_EVENT = "errorEvent";
 
 const SOCKET_SERVER_URL = "http://localhost:8081";
-const useChat = (token, roomId) => {
+
+const useChat = (token, roomId, friend) => {
   const [messages, setMessages] = useState([]); // Sent and received messages
   const [error, setError] = useState(null);
   const socketRef = useRef();
@@ -14,8 +15,8 @@ const useChat = (token, roomId) => {
   useEffect(() => {
     setError(null);
     // Creates a WebSocket connection
-    socketRef.current = socketIOClient(SOCKET_SERVER_URL, {
-      query: { roomId, token },
+    socketRef.current = socketIOClient(`${SOCKET_SERVER_URL}/chat`, {
+      query: { roomId, token, friend },
     });
 
     socketRef.current.on(GET_THE_PAST_MESSAGES, (messages) => {
