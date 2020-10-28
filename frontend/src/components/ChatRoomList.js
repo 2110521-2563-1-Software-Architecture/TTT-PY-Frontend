@@ -9,7 +9,7 @@ function ChatRoomList(props) {
   const { resetRefresh, refresh, error } = useChatroom(token);
   const [chatroomList, setChatroomList] = useState([]);
 
-  useEffect(async () => {
+  const getChatRooms = async () => {
     var response = await Util.getChatRooms();
     if (response.err) {
       console.log(response.err);
@@ -24,6 +24,10 @@ function ChatRoomList(props) {
       });
       setChatroomList(chatRoomList);
     }
+  };
+
+  useEffect(() => {
+    getChatRooms();
   }, []);
 
   useEffect(() => {
