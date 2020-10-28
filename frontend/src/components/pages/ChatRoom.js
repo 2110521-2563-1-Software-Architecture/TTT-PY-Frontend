@@ -7,11 +7,13 @@ const ChatRoom = (props) => {
   const [roomId, setRoomId] = React.useState(props.selectedChatRoom.chatRoomID); // Gets roomId from URL
   const [friend, setFriend] = React.useState(props.selectedChatRoom.username);
 
-  const { messages, sendMessage, getPastMessages, error } = useChat(
-    token,
-    roomId,
-    friend
-  ); // Creates a websocket and manages messaging
+  const {
+    messages,
+    sendMessage,
+    getPastMessages,
+    sendingMessages,
+    error,
+  } = useChat(token, roomId, friend); // Creates a websocket and manages messaging
   const [newMessage, setNewMessage] = React.useState(""); // Message to be sent
 
   useEffect(() => {
@@ -45,7 +47,6 @@ const ChatRoom = (props) => {
     if (newMessage.replace(/\s+/g, "") !== "")
       sendMessage({
         text: newMessage,
-        token: token,
       });
     setNewMessage("");
     setTimeout(() => {
@@ -82,20 +83,6 @@ const ChatRoom = (props) => {
         <div>
           <ol>
             {messages.map((message, i) => {
-              //return (
-              //  <li
-              //    key={i}
-              //    className='button'
-              //    style={{
-              //      color:
-              //        message.usernameSender === localStorage.getItem("user")
-              //          ? "red"
-              //          : "orange",
-              //    }}
-              //  >
-              //    {message.messageText}
-              //  </li>
-              //);
               if (message.usernameSender === localStorage.getItem("user")) {
                 return (
                   <div>
@@ -122,6 +109,22 @@ const ChatRoom = (props) => {
                   </div>
                 );
               }
+            })}
+
+            {sendingMessages.map((message, i) => {
+              return (
+                <div>
+                  <div
+                    className="message-chat"
+                    style={{
+                      background: "var(--chat-font-color)",
+                      marginLeft: "auto",
+                    }}
+                  >
+                    {"sending:" + message.text}
+                  </div>
+                </div>
+              );
             })}
           </ol>
         </div>
