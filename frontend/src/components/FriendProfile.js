@@ -25,20 +25,24 @@ const FriendProfile = (props) => {
 
   return (
     <div className="background-color">
-      <div style={{ paddingTop: "100px" }}>
-        <img className="profile-image" src="userimage.jpeg" />
-      </div>
-      <div className="profile-title">{friend.username}</div>
-      <div className="profile-data" style={{ marginBottom: "20px" }}>
-        Name : {`${friend.firstName}  ${friend.lastName}`}
-      </div>
-      <div className="profile-data" style={{ marginBottom: "20px" }}>
-        Email : {friend.email}
-      </div>
-      <div className="button" style={{ marginBottom: "20px" }}>
-        Chat Now
-      </div>
-      <div className="button">Delete Friend</div>
+      {friend.username && (
+        <>
+          <div style={{ paddingTop: "100px" }}>
+            <img className="profile-image" src="userimage.jpeg" />
+          </div>
+          <div className="profile-title">{friend.username}</div>
+          <div className="profile-data" style={{ marginBottom: "20px" }}>
+            Name : {`${friend.firstName}  ${friend.lastName}`}
+          </div>
+          <div className="profile-data" style={{ marginBottom: "20px" }}>
+            Email : {friend.email}
+          </div>
+          <div className="button" style={{ marginBottom: "20px" }}>
+            Chat Now
+          </div>
+          <div className="button">Delete Friend</div>
+        </>
+      )}
     </div>
   );
 };
