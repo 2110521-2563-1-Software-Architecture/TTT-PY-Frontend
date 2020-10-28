@@ -17,7 +17,8 @@ const useChatroom = (token) => {
       query: { token },
     });
 
-    socketRef.current.on(REFRESH_CHATROOM, async () => {
+    socketRef.current.on(REFRESH_CHATROOM, async (refresh) => {
+      console.log(refresh);
       setRefresh(true);
     });
 

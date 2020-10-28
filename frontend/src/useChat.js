@@ -9,6 +9,7 @@ const SOCKET_SERVER_URL = "http://localhost:8081";
 
 const useChat = (token, roomId, friend) => {
   const [messages, setMessages] = useState([]); // Sent and received messages
+  const [sendingMessages, setSendingMessages] = useState([]);
   const [error, setError] = useState(null);
   const socketRef = useRef();
 
@@ -43,6 +44,8 @@ const useChat = (token, roomId, friend) => {
   // Sends a message to the server that
   // forwards it to all users in the same room
   const sendMessage = (messageBody) => {
+    setSendingMessages([...sendingMessages, messageBody]);
+    console.log(messageBody);
     socketRef.current.emit(NEW_CHAT_MESSAGE_EVENT, messageBody);
   };
 

@@ -31,6 +31,7 @@ function ChatRoomList(props) {
   }, []);
 
   useEffect(() => {
+    getChatRooms();
     resetRefresh();
   }, [refresh]);
 
