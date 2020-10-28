@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Component } from "react";
 import "./Public.css";
 import Util from "../Util";
+import { useHistory } from "react-router-dom";
 
 const FriendProfile = (props) => {
   const [friend, setFriend] = useState({
@@ -9,10 +10,19 @@ const FriendProfile = (props) => {
     firstName: "",
     lastName: "",
   });
+  const history = useHistory();
   useEffect(() => {
     setFriendInfo(props.selectedFriend);
   }, [props.selectedFriend]);
-
+  const onChatNow = async () => {
+    var response = await Util.createChatroom(friend.username);
+    if (response.err) {
+      console.log(response.err);
+    } else {
+      console.log(response.data);
+      history.push("/chat");
+    }
+  };
   const setFriendInfo = async (username) => {
     var response = await Util.getUser(username);
     if (response.err) {
@@ -37,7 +47,11 @@ const FriendProfile = (props) => {
           <div className="profile-data" style={{ marginBottom: "20px" }}>
             Email : {friend.email}
           </div>
-          <div className="button" style={{ marginBottom: "20px" }}>
+          <div
+            className="button"
+            style={{ marginBottom: "20px" }}
+            onClick={onChatNow}
+          >
             Chat Now
           </div>
           <div className="button">Delete Friend</div>

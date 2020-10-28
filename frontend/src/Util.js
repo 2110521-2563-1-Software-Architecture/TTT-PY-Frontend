@@ -74,9 +74,9 @@ const Util = {
       method: "GET",
       mode: "cors",
       headers: {
-        'Authorization' : localStorage.getItem('token'),
+        Authorization: localStorage.getItem("token"),
       },
-      });
+    });
     console.log(response);
     if (response.status == 400) return response.json();
     if (response.status == 200) return response.json();
@@ -91,7 +91,7 @@ const Util = {
       cache: "no-cache",
       headers: {
         "Content-Type": "application/json",
-        'Authorization' : localStorage.getItem('token'),
+        Authorization: localStorage.getItem("token"),
       },
       body: JSON.stringify({ username }),
     });
@@ -123,6 +123,22 @@ const Util = {
       },
     });
     if (response.status == 200) return response.json();
+    else return { err: response.message };
+  },
+  createChatroom: async (username) => {
+    const URL = `http://localhost:8081/chat/room`;
+    const response = await fetch(URL, {
+      method: "POST",
+      mode: "cors",
+      cache: "no-cache",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
+      },
+      body: JSON.stringify({ username }),
+    });
+    console.log(response.status);
+    if (response.status == 201) return response.json();
     else return { err: response.message };
   },
 };
