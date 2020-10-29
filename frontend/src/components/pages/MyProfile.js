@@ -26,14 +26,14 @@ export class MyProfile extends Component {
                     {localStorage.getItem('email')}
                 </div>
                 <div>
-                    <button className="button" style={{ marginBottom: '20px' }}>
+                    <div className="button" style={{ marginBottom: '20px' }}>
                         Edit Profile
-                    </button>
+                    </div>
                 </div>
                 <div>
-                    <button className="button" onClick={logout}>
+                    <div className="button-red" onClick={logout}>
                         Sign Out
-                    </button>
+                    </div>
                 </div>
 
             </div>
