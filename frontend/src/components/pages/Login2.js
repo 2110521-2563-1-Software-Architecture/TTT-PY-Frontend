@@ -90,6 +90,7 @@ export class Login2 extends Component {
       //get error message from backend
       window.alert(data.message);
       this.setState({ password: "" });
+      localStorage.setItem("isSignIn", 'false');
     } else {
 
       // login success

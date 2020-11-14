@@ -107,6 +107,17 @@ body {
     text-align: center;
     cursor: pointer;
 }
+.edit-button {
+    background: var(--textbox-bg-color);
+    color: var(--text-primary-color);
+    font-size: 12px;
+    line-height: 30px;
+    border: none;
+    border-radius: 6px;
+    text-align: center;
+    width: 80px;
+    height: 30px;
+}
 
 .button-outline {
     background: var(--transparent-color);

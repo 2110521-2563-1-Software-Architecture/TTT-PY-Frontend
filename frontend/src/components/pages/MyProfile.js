@@ -14,6 +14,11 @@ export class MyProfile extends Component {
             history.push(`/Login`);
             window.location.reload();
         }
+        const editProfile = ()=>{
+            console.log("going to edit profile page")
+            history.push(`/EditProfile`);
+            window.location.reload();
+        }
         return (
             <div className="background-color" style={{ paddingLeft: '100px' }}>
                 <div style={{ paddingTop: "100px" }}>
@@ -26,7 +31,7 @@ export class MyProfile extends Component {
                     {localStorage.getItem('email')}
                 </div>
                 <div>
-                    <button className="button" style={{ marginBottom: '20px' }}>
+                    <button className="button" style={{ marginBottom: '20px' }} onClick={editProfile}>
                         Edit Profile
                     </button>
                 </div>
