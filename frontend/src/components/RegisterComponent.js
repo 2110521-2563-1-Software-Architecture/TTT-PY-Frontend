@@ -37,7 +37,7 @@ function RegisterComponent() {
       setUserAccount(false);
     } else {
       setUserAccount(true);
-      recaptchaRef.current.reset();
+      //   recaptchaRef.current.reset();
       let data = await Util.register(user, email, password, recaptchaResponse);
       console.log("data");
       console.log(data);
@@ -111,7 +111,7 @@ function RegisterComponent() {
         <div style={{ paddingLeft: "100px" }}>
           <ReCAPTCHA
             ref={recaptchaRef}
-            sitekey="6LdC3uIZAAAAAK35IVHm0v6r_Hrpk6NIfaQA_q1x"
+            sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
             onChange={onReCaptchaChange}
           />
         </div>
