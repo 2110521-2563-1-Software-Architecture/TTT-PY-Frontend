@@ -50,7 +50,7 @@ function ChatRoomList(props) {
             );
           })}
         </div>
-      </div>
+      </div>  
     </div>
   );
 }

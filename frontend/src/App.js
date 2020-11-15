@@ -13,6 +13,7 @@ import MyProfile from "./components/pages/MyProfile";
 import AddFriend from "./components/pages/AddFriend";
 import NotFound from "./components/pages/NotFound";
 import EditProfile from "./components/pages/EditProfile"
+import ModalTest from "./components/Modal"
 
 class App extends Component {
   render() {

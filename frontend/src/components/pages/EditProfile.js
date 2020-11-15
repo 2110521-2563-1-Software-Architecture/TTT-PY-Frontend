@@ -2,7 +2,7 @@ import React, { useState, useEffect, Component } from 'react'
 import history from "../../History";
 
 class EditProfile extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             user: localStorage.getItem('user'),
@@ -11,23 +11,47 @@ class EditProfile extends Component {
     }
     render() {
         console.log("in the Edit page")
-        const backToProfile = ()=>{
+        const backToProfile = () => {
             history.push(`/MyProfile`);
             window.location.reload();
         }
-        const handleChange_user = (e)=>{
+        const handleChange_user = (e) => {
             this.setState({ user: e.target.value });
         }
-        const handleChange_email = (e)=>{
+        const handleChange_email = (e) => {
             this.setState({ email: e.target.value });
         }
         return (
             <div className="background-color" style={{ paddingLeft: '100px' }}>
 
                 <div style={{ width: "700px" }}>
-                    <div className="row" style={{ paddingTop: "100px", marginLeft: "100px"}}>
+                    <div className="row" style={{ paddingTop: "100px", marginLeft: "100px" }}>
                         <img className="profile-image" src="userimage.jpeg" />
-                        <div className="edit-button" style={{marginTop: "180px"}}>Edit Picture</div>
+                        <button className="edit-button" data-toggle="modal" data-target="#basicExampleModal" style={{ marginTop: "180px" }}>Edit Picture</button>
+                        {/* <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicExampleModal">
+                            Launch demo modal
+                        </button> */}
+                    </div>
+
+                    <div className="modal fade" id="basicExampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div className="modal-dialog" role="document">
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div className="modal-body">
+                                    ...
+                                </div>
+                                <div className="modal-footer">
+                                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" className="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <input
                         type="text"
@@ -54,14 +78,14 @@ class EditProfile extends Component {
                         }}
                     ></input>
                     <div style={{
-                            marginTop: "20px",
-                            marginBottom: "20px",
-                            marginLeft: "100px",
-                        }}>
+                        marginTop: "20px",
+                        marginBottom: "20px",
+                        marginLeft: "100px",
+                    }}>
                         <button className="button" style={{ marginBottom: '20px' }} onClick={backToProfile}>
                             Done
                         </button>
-                        <button className="button" style={{ marginBottom: '20px',marginLeft:'20px', width: '200px' }}>
+                        <button className="button" style={{ marginBottom: '20px', marginLeft: '20px', width: '200px' }}>
                             Change Password
                         </button>
                     </div>
@@ -69,12 +93,13 @@ class EditProfile extends Component {
 
 
             </div>
+
+
         );
     }
 }
 
 export default EditProfile;
-
 
 // import React from 'react';
 
