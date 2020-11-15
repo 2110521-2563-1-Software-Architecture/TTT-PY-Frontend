@@ -57,7 +57,22 @@
     background-size: 100% 100%;
 }
 
+.message-area{
+    width: fit-content;
+    padding: 5px;
+    padding-left: 18px;
+    padding-right: 18px;
+    margin: 5px;
+}
+
+.message-time{
+    color: var(--text-secondary-color);
+    font-size: 10px;
+    display: inline;
+}
+
 .message-chat{
+    display: inline;
     border-radius: 100px;
     width: fit-content;
     padding: 5px;

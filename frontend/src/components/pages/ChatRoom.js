@@ -64,26 +64,62 @@ const ChatRoom = (props) => {
   return !roomId ? (
     <div></div>
   ) : (
-    <div className="container">
-      <link
-        rel="stylesheet"
-        href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
-        crossorigin="anonymous"
-      ></link>
-      {/* heading area */}
-      <div className="header" style={{ paddingLeft: "50px" }}>
-        <div className="header-name" style={{}}>
-          {/* friend's name */}
-          {friend}
+      <div className="container">
+        <link
+          rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+          crossorigin="anonymous"
+        ></link>
+        {/* heading area */}
+        <div className="header" style={{ paddingLeft: "50px" }}>
+          <div className="header-name" style={{}}>
+            {/* friend's name */}
+            {friend}
+          </div>
         </div>
-      </div>
-      {/* main area */}
-      <div className="bg-chatroom" id="bottom">
-        <div>
-          <ol>
-            {messages.map((message, i) => {
-              if (message.usernameSender === localStorage.getItem("user")) {
+        {/* main area */}
+        <div className="bg-chatroom" id="bottom">
+          <div>
+            <ol>
+              {messages.map((message, i) => {
+                console.log(message)
+                var date = new Date(parseInt(message.dateTime));
+                var hours = date.getHours();
+                var minutes = date.getMinutes();
+                if (parseInt(minutes) - 10 >= 0) {
+                  var time = hours + ":" + minutes;
+                }
+                else {
+                  var time = hours + ":0" + minutes;
+                }
+
+                if (message.usernameSender === localStorage.getItem("user")) {
+                  return (
+                    <div>
+                      <div className="message-area" style={{ marginLeft: "auto", }}>
+                        <div className="message-time">{time}</div>
+                        <div className="message-chat" style={{ background: "var(--chat-font-color)"}}>
+                          {message.messageText}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                } else {
+                  return (
+                    <div>
+                      <div className="message-area" style={{ marginRight: "auto", }}>
+                        <div className="message-chat">
+                          {message.messageText}
+                        </div>
+                        <div className="message-time">{time}</div>
+                      </div>
+                    </div>
+                  );
+                }
+              })}
+
+              {sendingMessages.map((message, i) => {
                 return (
                   <div>
                     <div
@@ -93,70 +129,42 @@ const ChatRoom = (props) => {
                         marginLeft: "auto",
                       }}
                     >
-                      {message.messageText}
+                      {"sending:" + message.text}
                     </div>
                   </div>
                 );
-              } else {
-                return (
-                  <div>
-                    <div
-                      className="message-chat"
-                      style={{ margin: "10px", marginRight: "auto" }}
-                    >
-                      {message.messageText}
-                    </div>
-                  </div>
-                );
-              }
-            })}
-
-            {sendingMessages.map((message, i) => {
-              return (
-                <div>
-                  <div
-                    className="message-chat"
-                    style={{
-                      background: "var(--chat-font-color)",
-                      marginLeft: "auto",
-                    }}
-                  >
-                    {"sending:" + message.text}
-                  </div>
-                </div>
-              );
-            })}
-          </ol>
-        </div>
-      </div>
-      {/* sending box area */}
-      <div className="send-box">
-        <div class="row">
-          <div class="icon" style={{ width: "10%" }}>
-            <i class="fa fa-plus"></i>
+              })}
+            </ol>
           </div>
-          <div class="message">
-            <div class="box-message" placeholder="message">
-              <input
-                class="input-message"
-                placeholder="message"
-                value={newMessage}
-                onChange={handleNewMessageChange}
-                onKeyDown={onEnterPress}
-                placeholder="Write message..."
-              ></input>
+        </div>
+        {/* sending box area */}
+        <div className="send-box">
+          <div class="row">
+            <div class="icon" style={{ width: "10%" }}>
+              <i class="fa fa-plus"></i>
+            </div>
+            <div class="message">
+              <div class="box-message" placeholder="message">
+                <input
+                  class="input-message"
+                  placeholder="message"
+                  value={newMessage}
+                  onChange={handleNewMessageChange}
+                  onKeyDown={onEnterPress}
+                  placeholder="Write message..."
+                ></input>
+              </div>
+            </div>
+            <div class="icon" style={{ marginLeft: "2%" }}>
+              <i class="fas fa-camera"></i>
+            </div>
+            <div class="icon">
+              <i class="fas fa-paper-plane " onClick={handleSendMessage}></i>
             </div>
           </div>
-          <div class="icon" style={{ marginLeft: "2%" }}>
-            <i class="fas fa-camera"></i>
-          </div>
-          <div class="icon">
-            <i class="fas fa-paper-plane " onClick={handleSendMessage}></i>
-          </div>
         </div>
       </div>
-    </div>
-  );
+    );
 };
 
 export default ChatRoom;

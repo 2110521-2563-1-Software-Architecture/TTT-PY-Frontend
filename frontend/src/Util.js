@@ -16,7 +16,7 @@ const Util = {
     // if (response.status == 200) return response.json();
   },
 
-  register: async (username, email, password) => {
+  register: async (username, email, password, recaptchaResponse) => {
     const URL = `http://localhost:8081/auth/register`;
     const response = await fetch(URL, {
       method: "POST",
@@ -29,11 +29,9 @@ const Util = {
         username,
         email,
         password,
+        recaptchaResponse,
       }),
     });
-    console.log("username ", username);
-    console.log(response);
-    console.log(response.body);
     if (response.status == 400) return response.json();
     if (response.status == 200) return response.json();
   },

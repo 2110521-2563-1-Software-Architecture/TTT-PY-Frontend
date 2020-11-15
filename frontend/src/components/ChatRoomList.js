@@ -78,19 +78,6 @@ class ChatRoomListHeader extends Component {
               class="col-md-8"
               style={{ paddingLeft: "35%", paddingTop: "1.5%" }}
             >
-              <button
-                class="btn btn-dark"
-                style={{
-                  backgroundColor: "black",
-                  color: "white",
-                  fontWeight: "bold",
-                  fontSize: "13px",
-                  width: "100px",
-                  padding: "",
-                }}
-              >
-                Add Friend
-              </button>
             </div>
           </div>
         </div>

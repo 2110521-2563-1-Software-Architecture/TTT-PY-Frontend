@@ -54,7 +54,7 @@ const FriendProfile = (props) => {
           >
             Chat Now
           </div>
-          <div className="button">Delete Friend</div>
+          <div className="button-red">Delete Friend</div>
         </>
       )}
     </div>
