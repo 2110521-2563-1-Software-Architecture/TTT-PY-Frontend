@@ -31,13 +31,9 @@ export class MyProfile extends Component {
                     {localStorage.getItem('email')}
                 </div>
                 <div>
-<<<<<<< HEAD
                     <button className="button" style={{ marginBottom: '20px' }} onClick={editProfile}>
-=======
-                    <div className="button" style={{ marginBottom: '20px' }}>
->>>>>>> master
                         Edit Profile
-                    </div>
+                    </button>
                 </div>
                 <div>
                     <div className="button-red" onClick={logout}>

@@ -152,3 +152,8 @@ body {
     border-radius: 50%;
     object-fit: cover;
 }
+.image-collection {
+    height: 100px;
+    width: 70vw;
+    object-fit: contain
+}

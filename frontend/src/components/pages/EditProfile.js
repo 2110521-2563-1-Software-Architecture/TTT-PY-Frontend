@@ -1,5 +1,48 @@
 import React, { useState, useEffect, Component } from 'react'
+import { Modal, Button } from 'react-bootstrap'
 import history from "../../History";
+function Pictures() {
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    return (
+        <>
+            <button className="edit-button" style={{ marginTop: "180px" }} onClick={handleShow}>
+                Edit Picture
+        </button>
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Choose your profile picture</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <div className="card">
+                        <div className="row">
+                            <img className="card" src="https://mdbootstrap.com/img/Photos/Slides/img%20(131).jpg" alt="Card image cap" style={{ width: "200px", margin: "20px", objectFit: "scale-down" }} />
+                            <img className="card" src="https://mdbootstrap.com/img/Photos/Slides/img%20(146).jpg" alt="Card image cap" style={{ width: "200px", margin: "20px", objectFit: "contain" }} />
+                            <img className="card" src="https://mdbootstrap.com/img/Photos/Slides/img%20(150).jpg" alt="Card image cap" style={{ width: "200px", margin: "20px", objectFit: "contain" }} />
+                            <img className="card" src="https://mdbootstrap.com/img/Photos/Slides/img%20(138).jpg" alt="Card image cap" style={{ width: "200px", margin: "20px", objectFit: "contain" }} />
+                            <img className="card" src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg" alt="Card image cap" style={{ width: "200px", margin: "20px", objectFit: "contain" }} />
+                            <img className="card" src="https://mdbootstrap.com/img/Photos/Slides/img%20(137).jpg" alt="Card image cap" style={{ width: "200px", margin: "20px", objectFit: "contain" }} />
+
+                        </div>
+
+                    </div>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+            </Button>
+                    <Button variant="primary" onClick={handleClose}>
+                        Save Changes
+            </Button>
+                </Modal.Footer>
+            </Modal>
+        </>
+    );
+}
 
 class EditProfile extends Component {
     constructor(props) {
@@ -27,31 +70,8 @@ class EditProfile extends Component {
                 <div style={{ width: "700px" }}>
                     <div className="row" style={{ paddingTop: "100px", marginLeft: "100px" }}>
                         <img className="profile-image" src="userimage.jpeg" />
-                        <button className="edit-button" data-toggle="modal" data-target="#basicExampleModal" style={{ marginTop: "180px" }}>Edit Picture</button>
-                        {/* <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicExampleModal">
-                            Launch demo modal
-                        </button> */}
-                    </div>
-
-                    <div className="modal fade" id="basicExampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div className="modal-dialog" role="document">
-                            <div className="modal-content">
-                                <div className="modal-header">
-                                    <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
-                                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div className="modal-body">
-                                    ...
-                                </div>
-                                <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" className="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
+                        {/* <button className="edit-button" type="button" data-toggle="modal" data-target="#basicExampleModal" style={{ marginTop: "180px" }}>Edit Picture</button> */}
+                        <Pictures />
                     </div>
                     <input
                         type="text"
