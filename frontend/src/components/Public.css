@@ -119,6 +119,19 @@ body {
     height: 30px;
 }
 
+.cancle-button {
+    background: var(--textbox-bg-color);
+    color: var(--text-primary-color);
+    font-weight: bold;
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    border-radius: 6px;
+    text-align: center;
+    cursor: pointer;
+}
+
 .button-red {
     background: #DC143C;
     color: #FFFFFF;
@@ -153,7 +166,13 @@ body {
     object-fit: cover;
 }
 .image-collection {
+    width: 100px;
     height: 100px;
-    width: 70vw;
-    object-fit: contain
+    margin: 10px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.image-collection:hover {
+    opacity: 0.5;
 }

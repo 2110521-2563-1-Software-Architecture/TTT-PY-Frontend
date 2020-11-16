@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Component } from 'react'
 import { Modal, Button } from 'react-bootstrap'
 import history from "../../History";
+import Util from "../../Util";
 function Pictures() {
     const [show, setShow] = useState(false);
 
@@ -26,7 +27,6 @@ function Pictures() {
                             <img className="card" src="https://mdbootstrap.com/img/Photos/Slides/img%20(138).jpg" alt="Card image cap" style={{ width: "200px", margin: "20px", objectFit: "contain" }} />
                             <img className="card" src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg" alt="Card image cap" style={{ width: "200px", margin: "20px", objectFit: "contain" }} />
                             <img className="card" src="https://mdbootstrap.com/img/Photos/Slides/img%20(137).jpg" alt="Card image cap" style={{ width: "200px", margin: "20px", objectFit: "contain" }} />
-
                         </div>
 
                     </div>
@@ -48,18 +48,30 @@ class EditProfile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: localStorage.getItem('user'),
+            username: localStorage.getItem('user'),
             email: localStorage.getItem('email'),
         };
     }
+    async componentDidMount(){
+        const profileInfo =  await Util.getMyprofile()
+        await this.setState(profileInfo.data)
+        console.log(profileInfo.data)
+        console.log(this.state)
+      }
     render() {
         console.log("in the Edit page")
         const backToProfile = () => {
             history.push(`/MyProfile`);
             window.location.reload();
         }
+        const confirmChange = async() => {
+            console.log(this.state.email)
+            await Util.editMyProfile("","",this.state.email,0);
+            history.push(`/MyProfile`);
+            window.location.reload();
+        }
         const handleChange_user = (e) => {
-            this.setState({ user: e.target.value });
+            this.setState({ username: e.target.value });
         }
         const handleChange_email = (e) => {
             this.setState({ email: e.target.value });
@@ -67,16 +79,32 @@ class EditProfile extends Component {
         return (
             <div className="background-color" style={{ paddingLeft: '100px' }}>
 
-                <div style={{ width: "700px" }}>
+                <div>
                     <div className="row" style={{ paddingTop: "100px", marginLeft: "100px" }}>
                         <img className="profile-image" src="userimage.jpeg" />
-                        {/* <button className="edit-button" type="button" data-toggle="modal" data-target="#basicExampleModal" style={{ marginTop: "180px" }}>Edit Picture</button> */}
                         <Pictures />
+                    </div>
+                    <div className="profile-data" style={{
+                        marginTop: "20px",
+                        marginBottom: "20px",
+                        marginLeft: "100px",
+                    }}>Select your avatar</div>
+                    <div className = "row" style={{
+                        marginTop: "20px",
+                        marginBottom: "20px",
+                        marginLeft: "100px",
+                    }}>
+                            <img className="image-collection" src="https://mdbootstrap.com/img/Photos/Slides/img%20(131).jpg" alt="Card image cap" />
+                            <img className="image-collection" src="https://mdbootstrap.com/img/Photos/Slides/img%20(146).jpg" alt="Card image cap" />
+                            <img className="image-collection" src="https://mdbootstrap.com/img/Photos/Slides/img%20(150).jpg" alt="Card image cap" />
+                            <img className="image-collection" src="https://mdbootstrap.com/img/Photos/Slides/img%20(138).jpg" alt="Card image cap" />
+                            <img className="image-collection" src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg" alt="Card image cap" />
+                            <img className="image-collection" src="https://mdbootstrap.com/img/Photos/Slides/img%20(137).jpg" alt="Card image cap" />
                     </div>
                     <input
                         type="text"
                         className="row box"
-                        value={this.state.user}
+                        value={this.state.username}
                         placeholder="username"
                         onChange={handleChange_user}
                         style={{
@@ -102,11 +130,11 @@ class EditProfile extends Component {
                         marginBottom: "20px",
                         marginLeft: "100px",
                     }}>
-                        <button className="button" style={{ marginBottom: '20px' }} onClick={backToProfile}>
-                            Done
+                        <button className="button" style={{ marginBottom: '20px' }} onClick={confirmChange}>
+                            Confirm
                         </button>
-                        <button className="button" style={{ marginBottom: '20px', marginLeft: '20px', width: '200px' }}>
-                            Change Password
+                        <button className="cancle-button" style={{ marginBottom: '20px', marginLeft: '20px' }} onClick={backToProfile}>
+                            Cancle
                         </button>
                     </div>
                 </div>

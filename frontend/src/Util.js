@@ -46,6 +46,21 @@ const Util = {
     if (response.status == 400) return response.json();
     if (response.status == 200) return response.json();
   },
+  getMyprofile: async () => {
+    const URL = `http://localhost:8081/user/`;
+    const response = await fetch(URL, {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        Authorization: localStorage.getItem("token"),
+      },
+    });
+    console.log(response);
+    if (response.status == 200) return response.json();
+    else {
+      return { err: response.message };
+    }
+  },
 
   getUser: async (username) => {
     if (!username) {
@@ -138,6 +153,25 @@ const Util = {
     console.log(response.status);
     if (response.status == 201) return response.json();
     else return { err: response.message };
+  },
+  editMyProfile: async (firstName,lastName,email,img) => {
+    let username = localStorage.getItem('user')
+    const URL = `http://localhost:8081/user/`;
+    const response = await fetch(URL, {
+      method: "PATCH",
+      // params: JSON.stringify({username}),
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
+      },
+      body: JSON.stringify({firstName,lastName,email,img })
+    });
+    console.log(response);
+    if (response.status == 200) return response.json();
+    else {
+      return { err: response.message };
+    }
   },
 };
 

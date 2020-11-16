@@ -4,6 +4,21 @@ import Util from "../../Util";
 import history from "../../History";
 
 export class MyProfile extends Component {
+    constructor(props) {
+        super(props);
+    
+        this.state = {
+          username: "user",
+          email: "email",
+        };
+        // const history = useHistory();
+      }
+      async componentDidMount(){
+        const profileInfo =  await Util.getMyprofile()
+        await this.setState(profileInfo.data)
+        console.log(profileInfo.data)
+        console.log(this.state)
+      }
     render() {
         const logout = () => {
             //remove all of current user information
@@ -19,16 +34,17 @@ export class MyProfile extends Component {
             history.push(`/EditProfile`);
             window.location.reload();
         }
+        
         return (
             <div className="background-color" style={{ paddingLeft: '100px' }}>
                 <div style={{ paddingTop: "100px" }}>
                     <img className="profile-image" src="userimage.jpeg" />
                 </div>
                 <div className="profile-title">
-                    {localStorage.getItem('user')}
+                    {this.state.username}
                 </div>
                 <div className="profile-data" style={{ marginBottom: '50px' }}>
-                    {localStorage.getItem('email')}
+                    {this.state.email}
                 </div>
                 <div>
                     <button className="button" style={{ marginBottom: '20px' }} onClick={editProfile}>
