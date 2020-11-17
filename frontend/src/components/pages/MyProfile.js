@@ -44,8 +44,11 @@ export class MyProfile extends Component {
                 <div className="profile-title">
                     {this.state.username}
                 </div>
-                <div className="profile-data" style={{ marginBottom: '50px' }}>
+                <div className="profile-data" style={{ marginBottom: '20px' }}>
                     {this.state.email}
+                </div>
+                <div className="profile-data" style={{ marginBottom: '50px' }}>
+                    {this.state.firstName} {this.state.lastName}
                 </div>
                 <div>
                     <button className="button" style={{ marginBottom: '20px' }} onClick={editProfile}>
