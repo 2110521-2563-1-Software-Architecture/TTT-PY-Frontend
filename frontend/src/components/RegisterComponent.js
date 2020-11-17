@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 //import history from "../../History";
+import ReCAPTCHA from "react-google-recaptcha";
 import Util from "./../Util";
 import "./Public.css";
 import { useHistory } from "react-router-dom";
@@ -10,6 +11,7 @@ function RegisterComponent() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirm_password, checkPassword] = useState("");
+    const [recaptchaResponse, setReCaptcha] = useState("");
     const history = useHistory();
     const handleChange_user = (event) => {
         setUsername(event.target.value);
@@ -25,6 +27,10 @@ function RegisterComponent() {
         if (confirm_password == password) setUserAccount(true);
         console.log("userAccount :", userAccount);
     };
+    // captcha function
+    const handleChange_ReCaptcha = (event) => {
+        setReCaptcha(event.target.value);
+    }
     const SetUserInformation = async () => {
         if (confirm_password != password) {
             alert("password and confirm password must be the same");
@@ -98,6 +104,14 @@ function RegisterComponent() {
                         marginLeft: "100px",
                     }}
                 ></input>
+                <ReCAPTCHA 
+                    sitekey="Your client site key" 
+                    onChange={handleChange_ReCaptcha} 
+                    style={{
+                        marginTop: "20px",
+                        marginBottom: "20px",
+                        marginLeft: "200px",
+                    }}/>,
             </div>
             <div
                 className="button"

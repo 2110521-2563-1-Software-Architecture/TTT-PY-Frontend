@@ -4,6 +4,7 @@ import FriendProfile from "../FriendProfile";
 
 function Friend() {
   const [friend, setFriend] = useState("");
+  const [isBlocked, setIsBlocked] = useState(false);
   function onSelectFriend(friend) {
     console.log(friend);
     setFriend(friend);

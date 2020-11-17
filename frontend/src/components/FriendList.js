@@ -88,6 +88,7 @@ export class FriendList extends Component {
     history.push(`/addFriend`);
     window.location.reload();
   };
+
 }
 
 export default FriendList;
@@ -99,7 +100,7 @@ class Friend extends Component {
         <div
           className="row friend-box"
           style={{ marginLeft: "15px" }}
-          onClick={() => this.props.selectFriend(this.props.friend.username)}
+          onClick={() => this.props.selectFriend(this.props.friend)}
         >
           <div className="col-md-4" style={{ width: "100%", margin: "auto" }}>
             <img className="friend-image " src={"userimage.jpeg"} />
@@ -112,3 +113,4 @@ class Friend extends Component {
     );
   }
 }
+

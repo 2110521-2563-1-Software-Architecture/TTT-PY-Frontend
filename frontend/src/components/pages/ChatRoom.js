@@ -61,6 +61,17 @@ const ChatRoom = (props) => {
     }
   };
 
+  const onClickDelete = async () => {
+    console.log("onClickDelete");
+    var response = await Util.deleteChatRoom(roomId);
+    if (response.err) {
+      console.log(response.err);
+    } else {
+      console.log(response.data);
+      window.location.reload(false)
+    }
+  };
+
   return !roomId ? (
     <div></div>
   ) : (
@@ -73,10 +84,14 @@ const ChatRoom = (props) => {
         ></link>
         {/* heading area */}
         <div className="header" style={{ paddingLeft: "50px" }}>
-          <div className="header-name" style={{}}>
+          <div className="header-name row" style={{}}>
             {/* friend's name */}
             {friend}
+            <div className="button-container" style={{ paddingLeft: "80%" }}>
+              <button className="button-red" onClick={onClickDelete}>Delete Chat</button>
+            </div>
           </div>
+          
         </div>
         {/* main area */}
         <div className="bg-chatroom" id="bottom">

@@ -141,6 +141,55 @@ const Util = {
     if (response.status == 201) return response.json();
     else return { err: response.message };
   },
+  deleteChatRoom: async (id) => {
+    console.log(id);
+    if (!id) return { err: "invalid input" }; 
+    const URL = `http://localhost:8081/chat/room/${id}`;
+    const response = await fetch(URL, {
+      method: "DELETE",
+      mode: "cors",
+      cache: "no-cache",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
+      },
+    });
+    console.log(response.status);
+    if (response.status == 201) return response.json();
+    else return { err: response.message };
+  },
+  blockFriend: async (username) => {
+    const URL = `http://localhost:8081/friend/block`;
+    const response = await fetch(URL, {
+      method: "POST",
+      mode: "cors",
+      cache: "no-cache",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
+      },
+      body: JSON.stringify({ username }),
+    });
+    console.log(response.status);
+    if (response.status == 201) return response.json();
+    else return { err: response.message };
+  },
+  unBlockFriend: async (username) => {
+    const URL = `http://localhost:8081/friend/unblock`;
+    const response = await fetch(URL, {
+      method: "POST",
+      mode: "cors",
+      cache: "no-cache",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
+      },
+      body: JSON.stringify({ username }),
+    });
+    console.log(response.status);
+    if (response.status == 201) return response.json();
+    else return { err: response.message };
+  }
 };
 
 export default Util;
