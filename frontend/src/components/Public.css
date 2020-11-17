@@ -107,6 +107,12 @@ body {
     text-align: center;
     cursor: pointer;
 }
+
+.button:disabled {
+    background: var(--text-secondary-color);
+    color: var(--bg-secondary-color);
+}
+
 .edit-button {
     background: var(--textbox-bg-color);
     color: var(--text-primary-color);
