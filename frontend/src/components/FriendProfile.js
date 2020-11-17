@@ -11,10 +11,13 @@ const FriendProfile = (props) => {
     firstName: "",
     lastName: "",
   });
+  const [isBlocked, setIsBlocked] = useState(props.selectedFriend.isBlocked);
   const history = useHistory();
+
   useEffect(() => {
     setFriendInfo(props.selectedFriend);
   }, [props.selectedFriend]);
+  
   const onChatNow = async () => {
     var response = await Util.createChatroom(friend.username);
     if (response.err) {
@@ -33,6 +36,7 @@ const FriendProfile = (props) => {
         console.log(response.err);
       } else {
         console.log(response.data);
+        setIsBlocked(true);
         // window.location.reload();
       }
   };
@@ -44,10 +48,12 @@ const FriendProfile = (props) => {
         console.log(response.err);
       } else {
         console.log(response.data);
+        setIsBlocked(false);
         // window.location.reload();
       }
   };
   const setFriendInfo = async (friend) => {
+    console.log(friend);
     var response = await Util.getUser(friend.username);
     if (response.err) {
       console.log(response.err);
@@ -78,8 +84,8 @@ const FriendProfile = (props) => {
           >
             Chat Now
           </div>
-          <div className="button-red" style={{display: !props.selectedFriend.isBlocked?"block":"none"}}onClick={onClickBlockBtn}>Block Friend</div>
-          <div className="button-red"  style={{backgroundColor: "#2A2D33",display: props.selectedFriend.isBlocked?"block":"none"}} onClick={onClickUnblockBtn}>Unblock Friend</div>
+          <div className="button-red" style={{display: !isBlocked?"block":"none"}}onClick={onClickBlockBtn}>Block Friend</div>
+          <div className="button-red"  style={{backgroundColor: "#2A2D33",display: isBlocked?"block":"none"}} onClick={onClickUnblockBtn}>Unblock Friend</div>
         </>
       )}
     </div>

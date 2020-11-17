@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 //import history from "../../History";
-import ReCAPTCHA from "react-google-recaptcha";
 import Util from "./../Util";
 import "./Public.css";
 import ReCAPTCHA from "react-google-recaptcha";

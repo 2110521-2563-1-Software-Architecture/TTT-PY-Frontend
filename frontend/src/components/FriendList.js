@@ -40,8 +40,8 @@ export class FriendList extends Component {
                       backgroundColor: "black",
                       color: "white",
                       fontWeight: "bold",
-                      fontSize: "13px",
-                      width: "100px",
+                      fontSize: "10px",
+                      width: "125px",
                       padding: "",
                     }}
                     onClick={() => this.onClick()}
