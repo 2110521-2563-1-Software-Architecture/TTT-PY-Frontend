@@ -2,6 +2,8 @@ import React, { useState, useEffect, Component } from 'react'
 import { Modal, Button } from 'react-bootstrap'
 import history from "../../History";
 import Util from "../../Util";
+import imgs from "../../assets/img.js"
+
 function Pictures() {
     const [show, setShow] = useState(false);
 
@@ -57,6 +59,7 @@ class EditProfile extends Component {
         await this.setState(profileInfo.data)
         console.log(profileInfo.data)
         console.log(this.state)
+        console.log(imgs[1])
       }
     render() {
         console.log("in the Edit page")
@@ -66,7 +69,7 @@ class EditProfile extends Component {
         }
         const confirmChange = async() => {
             console.log(this.state.email)
-            await Util.editMyProfile("","",this.state.email,0);
+            await Util.editMyProfile("","",this.state.email,this.state.img);
             history.push(`/MyProfile`);
             window.location.reload();
         }
@@ -81,7 +84,7 @@ class EditProfile extends Component {
 
                 <div>
                     <div className="row" style={{ paddingTop: "100px", marginLeft: "100px" }}>
-                        <img className="profile-image" src="userimage.jpeg" />
+                        <img className="profile-image" src={imgs[this.state.img]} />
                         <Pictures />
                     </div>
                     <div className="profile-data" style={{
@@ -94,12 +97,12 @@ class EditProfile extends Component {
                         marginBottom: "20px",
                         marginLeft: "100px",
                     }}>
-                            <img className="image-collection" src="https://mdbootstrap.com/img/Photos/Slides/img%20(131).jpg" alt="Card image cap" />
-                            <img className="image-collection" src="https://mdbootstrap.com/img/Photos/Slides/img%20(146).jpg" alt="Card image cap" />
-                            <img className="image-collection" src="https://mdbootstrap.com/img/Photos/Slides/img%20(150).jpg" alt="Card image cap" />
-                            <img className="image-collection" src="https://mdbootstrap.com/img/Photos/Slides/img%20(138).jpg" alt="Card image cap" />
-                            <img className="image-collection" src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg" alt="Card image cap" />
-                            <img className="image-collection" src="https://mdbootstrap.com/img/Photos/Slides/img%20(137).jpg" alt="Card image cap" />
+                        {imgs.map((imgProfile,index)=>{
+                                const changeImageProfile = () =>{
+                                    this.setState({img: index})
+                                }
+                                return (<img className="image-collection" src={imgProfile} alt="Card image cap" onClick={changeImageProfile}/>);
+                        })}
                     </div>
                     <input
                         type="text"

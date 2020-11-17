@@ -2,6 +2,7 @@ import React, { useState, useEffect, Component } from 'react'
 import './../Public.css';
 import Util from "../../Util";
 import history from "../../History";
+import imgs from "../../assets/img.js"
 
 export class MyProfile extends Component {
     constructor(props) {
@@ -38,7 +39,7 @@ export class MyProfile extends Component {
         return (
             <div className="background-color" style={{ paddingLeft: '100px' }}>
                 <div style={{ paddingTop: "100px" }}>
-                    <img className="profile-image" src="userimage.jpeg" />
+                    <img className="profile-image" src={imgs[this.state.img]} />
                 </div>
                 <div className="profile-title">
                     {this.state.username}
