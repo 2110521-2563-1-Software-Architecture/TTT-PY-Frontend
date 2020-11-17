@@ -2,8 +2,24 @@ import React, { useState, useEffect, Component } from 'react'
 import './../Public.css';
 import Util from "../../Util";
 import history from "../../History";
+import imgs from "../../assets/img.js"
 
 export class MyProfile extends Component {
+    constructor(props) {
+        super(props);
+    
+        this.state = {
+          username: "user",
+          email: "email",
+        };
+        // const history = useHistory();
+      }
+      async componentDidMount(){
+        const profileInfo =  await Util.getMyprofile()
+        await this.setState(profileInfo.data)
+        console.log(profileInfo.data)
+        console.log(this.state)
+      }
     render() {
         const logout = () => {
             //remove all of current user information
@@ -14,21 +30,27 @@ export class MyProfile extends Component {
             history.push(`/Login`);
             window.location.reload();
         }
+        const editProfile = ()=>{
+            console.log("going to edit profile page")
+            history.push(`/EditProfile`);
+            window.location.reload();
+        }
+        
         return (
             <div className="background-color" style={{ paddingLeft: '100px' }}>
                 <div style={{ paddingTop: "100px" }}>
-                    <img className="profile-image" src="userimage.jpeg" />
+                    <img className="profile-image" src={imgs[this.state.img]} />
                 </div>
                 <div className="profile-title">
-                    {localStorage.getItem('user')}
+                    {this.state.username}
                 </div>
                 <div className="profile-data" style={{ marginBottom: '50px' }}>
-                    {localStorage.getItem('email')}
+                    {this.state.email}
                 </div>
                 <div>
-                    <div className="button" style={{ marginBottom: '20px' }}>
+                    <button className="button" style={{ marginBottom: '20px' }} onClick={editProfile}>
                         Edit Profile
-                    </div>
+                    </button>
                 </div>
                 <div>
                     <div className="button-red" onClick={logout}>

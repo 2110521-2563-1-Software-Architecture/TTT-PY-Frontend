@@ -12,6 +12,8 @@ import Friend from "./components/pages/Friend";
 import MyProfile from "./components/pages/MyProfile";
 import AddFriend from "./components/pages/AddFriend";
 import NotFound from "./components/pages/NotFound";
+import EditProfile from "./components/pages/EditProfile"
+import ModalTest from "./components/Modal"
 
 class App extends Component {
   render() {
@@ -41,6 +43,10 @@ class App extends Component {
             <Route
               path="/MyProfile"
               component={isSignIn == "true" ? MyProfile : Login2}
+            />
+            <Route
+              path="/EditProfile"
+              component={isSignIn == "true" ? EditProfile : NotFound}
             />
             <Route
               path="/addFriend"

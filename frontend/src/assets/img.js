@@ -1,0 +1,2 @@
+const imgs = ["userimage.jpeg", "https://mdbootstrap.com/img/Photos/Slides/img%20(131).jpg", "https://mdbootstrap.com/img/Photos/Slides/img%20(146).jpg","https://mdbootstrap.com/img/Photos/Slides/img%20(150).jpg","https://mdbootstrap.com/img/Photos/Slides/img%20(138).jpg","https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg","https://mdbootstrap.com/img/Photos/Slides/img%20(137).jpg"]
+export default imgs;

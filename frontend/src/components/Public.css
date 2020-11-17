@@ -107,6 +107,30 @@ body {
     text-align: center;
     cursor: pointer;
 }
+.edit-button {
+    background: var(--textbox-bg-color);
+    color: var(--text-primary-color);
+    font-size: 12px;
+    line-height: 30px;
+    border: none;
+    border-radius: 6px;
+    text-align: center;
+    width: 80px;
+    height: 30px;
+}
+
+.cancle-button {
+    background: var(--textbox-bg-color);
+    color: var(--text-primary-color);
+    font-weight: bold;
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    border-radius: 6px;
+    text-align: center;
+    cursor: pointer;
+}
 
 .button-red {
     background: #DC143C;
@@ -140,4 +164,15 @@ body {
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
+}
+.image-collection {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.image-collection:hover {
+    opacity: 0.5;
 }
