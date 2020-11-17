@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 //import history from "../../History";
 import Util from "./../Util";
 import "./Public.css";
-import ReCAPTCHA from "react-google-recaptcha";
 import { useHistory } from "react-router-dom";
 
 function RegisterComponent() {
@@ -56,13 +55,13 @@ function RegisterComponent() {
   };
   return (
     <div className="row background-color">
-      <div
-        className="title"
-        style={{ paddingTop: "100px", paddingLeft: "100px" }}
-      >
-        Welcome
-      </div>
       <div style={{ width: "700px" }}>
+        <div
+          className="title"
+          style={{ paddingTop: "100px", paddingLeft: "100px" }}
+        >
+          Welcome
+        </div>
         <input
           type="text"
           className="row box"
@@ -115,17 +114,17 @@ function RegisterComponent() {
             onChange={onReCaptchaChange}
           />
         </div>
-      </div>
-      <div
-        className="button"
-        onClick={SetUserInformation}
-        style={{
-          marginTop: "40px",
-          marginBottom: "20px",
-          marginLeft: "100px",
-        }}
-      >
-        Register Now
+        <div
+          className="button"
+          onClick={SetUserInformation}
+          style={{
+            marginTop: "20px",
+            marginBottom: "20px",
+            marginLeft: "100px",
+          }}
+        >
+          Register Now
+        </div>
       </div>
     </div>
   );

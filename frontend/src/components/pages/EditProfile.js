@@ -54,27 +54,30 @@ class EditProfile extends Component {
             email: localStorage.getItem('email'),
         };
     }
-    async componentDidMount(){
-        const profileInfo =  await Util.getMyprofile()
+    async componentDidMount() {
+        const profileInfo = await Util.getMyprofile()
         await this.setState(profileInfo.data)
         console.log(profileInfo.data)
         console.log(this.state)
         console.log(imgs[1])
-      }
+    }
     render() {
         console.log("in the Edit page")
         const backToProfile = () => {
             history.push(`/MyProfile`);
             window.location.reload();
         }
-        const confirmChange = async() => {
+        const confirmChange = async () => {
             console.log(this.state.email)
-            await Util.editMyProfile("","",this.state.email,this.state.img);
+            await Util.editMyProfile(this.state.firstName, this.state.lastName, this.state.email, this.state.img);
             history.push(`/MyProfile`);
             window.location.reload();
         }
-        const handleChange_user = (e) => {
-            this.setState({ username: e.target.value });
+        const handleChange_firstName = (e) => {
+            this.setState({ firstName: e.target.value });
+        }
+        const handleChange_lastName = (e) => {
+            this.setState({ lastName: e.target.value });
         }
         const handleChange_email = (e) => {
             this.setState({ email: e.target.value });
@@ -86,30 +89,50 @@ class EditProfile extends Component {
                     <div className="row" style={{ paddingTop: "100px", marginLeft: "100px" }}>
                         <img className="profile-image" src={imgs[this.state.img]} />
                         <Pictures />
+                        <div>
+                            <div className="profile-title">
+                                {this.state.username}
+                            </div>
+                            <div className="profile-data" style={{ marginBottom: '50px' }}>
+                                {this.state.email}
+                            </div>
+                        </div>
                     </div>
                     <div className="profile-data" style={{
                         marginTop: "20px",
                         marginBottom: "20px",
                         marginLeft: "100px",
                     }}>Select your avatar</div>
-                    <div className = "row" style={{
+                    <div className="row" style={{
                         marginTop: "20px",
                         marginBottom: "20px",
                         marginLeft: "100px",
                     }}>
-                        {imgs.map((imgProfile,index)=>{
-                                const changeImageProfile = () =>{
-                                    this.setState({img: index})
-                                }
-                                return (<img className="image-collection" src={imgProfile} alt="Card image cap" onClick={changeImageProfile}/>);
+                        {imgs.map((imgProfile, index) => {
+                            const changeImageProfile = () => {
+                                this.setState({ img: index })
+                            }
+                            return (<img className="image-collection" src={imgProfile} alt="Card image cap" onClick={changeImageProfile} />);
                         })}
                     </div>
                     <input
                         type="text"
                         className="row box"
-                        value={this.state.username}
-                        placeholder="username"
-                        onChange={handleChange_user}
+                        value={this.state.firstName}
+                        placeholder="first name"
+                        onChange={handleChange_firstName}
+                        style={{
+                            marginTop: "20px",
+                            marginBottom: "20px",
+                            marginLeft: "100px",
+                        }}
+                    ></input>
+                    <input
+                        type="text"
+                        className="row box"
+                        value={this.state.lastName}
+                        placeholder="last name"
+                        onChange={handleChange_lastName}
                         style={{
                             marginTop: "20px",
                             marginBottom: "20px",

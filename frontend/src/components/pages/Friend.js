@@ -11,7 +11,11 @@ function Friend() {
   }
   return (
     <div className="row" style={{}}>
-      <div className="col-md-4" style={{}}>
+      <div className="col-md-4" style={{
+          minWidth: "300px",
+          maxWidth: "300px",
+          borderRight: "2px solid var(--bg-secondary-color)",
+        }}>
         <FriendList selectFriend={onSelectFriend} />
       </div>
       <div className="col-md-8" style={{}}>

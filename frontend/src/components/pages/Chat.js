@@ -14,13 +14,14 @@ function Chat() {
       <div
         className="col-md-4"
         style={{
-          maxWidth: "350px",
+          minWidth: "300px",
+          maxWidth: "300px",
           borderRight: "2px solid var(--bg-secondary-color)",
         }}
       >
         <ChatRoomList selectChatRoom={onSelectChatroom} />
       </div>
-      <div className="col-md-8">
+      <div className="col-md-8" style={{}}>
         {/* <ChatRoomComponent selectedChatRoom={chatRoom} /> */}
         <ChatRoom selectedChatRoom={chatRoom} />
       </div>

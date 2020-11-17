@@ -19,29 +19,37 @@ export class FriendList extends Component {
             {/* <FriendListHeader /> */}
             <div class="friend-list-header">
               <div class="row">
-                <div class="col-md-4" style={{}}>
-                  <div style={{ fontWeight: "bold" }}>Contact</div>
+                <div class="col-md-6" style={{}}>
                   <div
                     style={{
-                      fontSize: "16px",
+                      fontWeight: "bold",
+                      color: "var(--text-primary-color)",
+                    }}
+                  >
+                    Contact
+                  </div>
+                  <div
+                    style={{
+                      fontSize: "12px",
+                      fontWeight: "bold",
                       color: "var(--text-secondary-color)",
                     }}
                   >
-                    {this.state.friend_list.length}
+                    {this.state.friend_list.length} friends
                   </div>
                 </div>
                 <div
-                  class="col-md-8"
-                  style={{ paddingLeft: "30%", paddingTop: "1.5%" }}
+                  class="col-md-6"
+                  style={{ paddingLeft: "14%", paddingTop: "1.5%" }}
                 >
                   <button
-                    class="btn btn-dark"
+                    class="button"
                     style={{
-                      backgroundColor: "black",
-                      color: "white",
                       fontWeight: "bold",
-                      fontSize: "10px",
-                      width: "125px",
+                      fontSize: "14px",
+                      width: "100px",
+                      lineHeight: "0px",
+                      height: "30px",
                       padding: "",
                     }}
                     onClick={() => this.onClick()}
@@ -88,7 +96,6 @@ export class FriendList extends Component {
     history.push(`/addFriend`);
     window.location.reload();
   };
-
 }
 
 export default FriendList;
@@ -113,4 +120,3 @@ class Friend extends Component {
     );
   }
 }
-

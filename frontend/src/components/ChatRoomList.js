@@ -63,21 +63,17 @@ class ChatRoomListHeader extends Component {
       <div>
         <div class="friend-list-header">
           <div class="row">
-            <div class="col-md-4" style={{}}>
-              <div style={{ fontWeight: "bold" }}>Chat</div>
+            <div class="col-md-12" style={{}}>
+              <div style={{ fontWeight: "bold", color: "var(--text-primary-color)", }}>Chat</div>
               <div
                 style={{
                   fontSize: "12px",
+                  fontWeight: "bold",
                   color: "var(--text-secondary-color)",
                 }}
               >
                 {this.props.amount} chatrooms
               </div>
-            </div>
-            <div
-              class="col-md-8"
-              style={{ paddingLeft: "35%", paddingTop: "1.5%" }}
-            >
             </div>
           </div>
         </div>
