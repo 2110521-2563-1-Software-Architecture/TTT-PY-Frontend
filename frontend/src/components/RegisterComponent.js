@@ -35,6 +35,9 @@ function RegisterComponent() {
     if (confirm_password != password) {
       alert("password and confirm password must be the same");
       setUserAccount(false);
+    } else if (user === '' || email === '' || password === '' || confirm_password === '') {
+      alert("please fill all of the data");
+      setUserAccount(false);
     } else {
       setUserAccount(true);
       //   recaptchaRef.current.reset();
@@ -66,8 +69,30 @@ function RegisterComponent() {
         <input
           type="text"
           className="row box"
-          placeholder="username"
+          placeholder="Username"
           onChange={handleChange_user}
+          style={{
+            marginTop: "20px",
+            marginBottom: "20px",
+            marginLeft: "100px",
+          }}
+          required={true}
+        ></input>
+        <input
+          type="text"
+          className="row box"
+          placeholder="Firstname"
+          style={{
+            marginTop: "20px",
+            marginBottom: "20px",
+            marginLeft: "100px",
+          }}
+          required={true}
+        ></input>
+        <input
+          type="text"
+          className="row box"
+          placeholder="Lastname"
           style={{
             marginTop: "20px",
             marginBottom: "20px",
