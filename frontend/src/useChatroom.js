@@ -3,8 +3,6 @@ import socketIOClient from "socket.io-client";
 
 const REFRESH_CHATROOM = "refreshChatroom";
 
-const SOCKET_SERVER_URL = "http://localhost:8081";
-
 const useChatroom = (token) => {
   const [refresh, setRefresh] = useState(false);
   const [error, setError] = useState(null);
@@ -13,9 +11,12 @@ const useChatroom = (token) => {
   useEffect(() => {
     setError(null);
     // Creates a WebSocket connection
-    socketRef.current = socketIOClient(`${SOCKET_SERVER_URL}/chatrooms`, {
-      query: { token },
-    });
+    socketRef.current = socketIOClient(
+      `http://${process.env.REACT_APP_API_ENDPOINT}/chatrooms`,
+      {
+        query: { token },
+      }
+    );
 
     socketRef.current.on(REFRESH_CHATROOM, async (refresh) => {
       console.log(refresh);
