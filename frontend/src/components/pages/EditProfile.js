@@ -88,8 +88,7 @@ class EditProfile extends Component {
                 <div>
                     <div className="row" style={{ paddingTop: "100px", marginLeft: "100px" }}>
                         <img className="profile-image" src={imgs[this.state.img]} />
-                        <Pictures />
-                        <div>
+                        <div style={{marginLeft: '20px'}}>
                             <div className="profile-title">
                                 {this.state.username}
                             </div>
