@@ -12,8 +12,8 @@ import Friend from "./components/pages/Friend";
 import MyProfile from "./components/pages/MyProfile";
 import AddFriend from "./components/pages/AddFriend";
 import NotFound from "./components/pages/NotFound";
-import EditProfile from "./components/pages/EditProfile"
-import ModalTest from "./components/Modal"
+import EditProfile from "./components/pages/EditProfile";
+import ModalTest from "./components/Modal";
 
 class App extends Component {
   render() {
@@ -31,10 +31,10 @@ class App extends Component {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/login" component={Login2} />
-            <Route
+            {/* <Route
               path="/Setting"
               component={isSignIn == "true" ? Setting : Login2}
-            />
+            /> */}
             <Route path="/chat" component={isSignIn == "true" ? Chat : Chat} />
             <Route
               path="/friend"
