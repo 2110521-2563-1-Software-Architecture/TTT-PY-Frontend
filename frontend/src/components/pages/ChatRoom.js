@@ -86,9 +86,10 @@ const ChatRoom = (props) => {
         <div className="header" style={{ paddingLeft: "50px" }}>
           <div className="header-name row" style={{}}>
             {/* friend's name */}
-            {friend}
-            
-            <div className="button-container" style={{ paddingLeft:"70%" }}>
+            <div className="header-name col-6">
+              {friend}
+              </div>
+            <div className="button-container col-6" style={{paddingLeft: "25%" ,float:"right" }}>
               <button className="button-red" onClick={onClickDelete}>Delete Chat</button>
             </div>
           </div>
@@ -154,11 +155,11 @@ const ChatRoom = (props) => {
         </div>
         {/* sending box area */}
         <div className="send-box">
-          <div class="row">
-            <div class="icon" style={{ width: "10%" }}>
+          <div class="row" style={{ paddingLeft: "5%" }}>
+            {/* <div class="icon" style={{ width: "10%" }}>
               <i class="fa fa-plus"></i>
-            </div>
-            <div class="message">
+            </div> */}
+            <div class="message" style={{ width: "95%" }}>
               <div class="box-message" placeholder="message">
                 <input
                   class="input-message"
@@ -170,9 +171,9 @@ const ChatRoom = (props) => {
                 ></input>
               </div>
             </div>
-            <div class="icon" style={{ marginLeft: "2%" }}>
+            {/* <div class="icon" style={{ marginLeft: "2%" }}>
               <i class="fas fa-camera"></i>
-            </div>
+            </div> */}
             <div class="icon">
               <i class="fas fa-paper-plane " onClick={handleSendMessage}></i>
             </div>
