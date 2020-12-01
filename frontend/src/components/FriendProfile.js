@@ -16,8 +16,9 @@ const FriendProfile = (props) => {
 
   useEffect(() => {
     setFriendInfo(props.selectedFriend);
+    setIsBlocked(props.selectedFriend.isBlocked);
   }, [props.selectedFriend]);
-  
+
   const onChatNow = async () => {
     var response = await Util.createChatroom(friend.username);
     if (response.err) {
@@ -30,27 +31,27 @@ const FriendProfile = (props) => {
   //unfinised function
   const onClickBlockBtn = async () => {
     console.log(props.selectedFriend.isBlocked);
-      console.log("block");
-      var response = await Util.blockFriend(friend.username);
-      if (response.err) {
-        console.log(response.err);
-      } else {
-        console.log(response.data);
-        setIsBlocked(true);
-        // window.location.reload();
-      }
+    console.log("block");
+    var response = await Util.blockFriend(friend.username);
+    if (response.err) {
+      console.log(response.err);
+    } else {
+      console.log(response.data);
+      setIsBlocked(true);
+      // window.location.reload();
+    }
   };
   const onClickUnblockBtn = async () => {
     console.log(props.selectedFriend.isBlocked);
-      console.log("unblock");
-      var response = await Util.unBlockFriend(friend.username);
-      if (response.err) {
-        console.log(response.err);
-      } else {
-        console.log(response.data);
-        setIsBlocked(false);
-        // window.location.reload();
-      }
+    console.log("unblock");
+    var response = await Util.unBlockFriend(friend.username);
+    if (response.err) {
+      console.log(response.err);
+    } else {
+      console.log(response.data);
+      setIsBlocked(false);
+      // window.location.reload();
+    }
   };
   const setFriendInfo = async (friend) => {
     console.log(friend);
@@ -84,8 +85,23 @@ const FriendProfile = (props) => {
           >
             Chat Now
           </div>
-          <div className="button-red" style={{display: !isBlocked?"block":"none"}}onClick={onClickBlockBtn}>Block Friend</div>
-          <div className="button-red"  style={{backgroundColor: "#2A2D33",display: isBlocked?"block":"none"}} onClick={onClickUnblockBtn}>Unblock Friend</div>
+          <div
+            className="button-red"
+            style={{ display: !isBlocked ? "block" : "none" }}
+            onClick={onClickBlockBtn}
+          >
+            Block Friend
+          </div>
+          <div
+            className="button-red"
+            style={{
+              backgroundColor: "#2A2D33",
+              display: isBlocked ? "block" : "none",
+            }}
+            onClick={onClickUnblockBtn}
+          >
+            Unblock Friend
+          </div>
         </>
       )}
     </div>

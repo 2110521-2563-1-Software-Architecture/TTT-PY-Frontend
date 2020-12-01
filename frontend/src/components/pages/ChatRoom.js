@@ -137,12 +137,11 @@ const ChatRoom = (props) => {
 
               {sendingMessages.map((message, i) => {
                 return (
-                  <div>
+                  <div className="message-area" style={{ marginLeft: "auto", }}>
                     <div
                       className="message-chat"
                       style={{
                         background: "var(--chat-font-color)",
-                        marginLeft: "auto",
                       }}
                     >
                       {"sending:" + message.text}
