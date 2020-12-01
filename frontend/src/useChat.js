@@ -53,7 +53,7 @@ const useChat = (token, roomId, friend) => {
   // forwards it to all users in the same room
   const sendMessage = (messageBody) => {
     messageBody.uuid = uuidv4();
-    console.log([...sendingMessages, messageBody]);
+    //console.log([...sendingMessages, messageBody]);
     setSendingMessages([...sendingMessages, messageBody]);
     socketRef.current.emit(NEW_CHAT_MESSAGE_EVENT, messageBody);
   };

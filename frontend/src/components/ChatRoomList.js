@@ -13,7 +13,7 @@ function ChatRoomList(props) {
   const getChatRooms = async () => {
     var response = await Util.getChatRooms();
     if (response.err) {
-      console.log(response.err);
+      //console.log(response.err);
     } else {
       var chatRoomList = response.data.map((chatRoom) => {
         var { chatRoomID, Friend } = chatRoom;
@@ -99,7 +99,7 @@ class ChatRoom extends Component {
           style={{ marginLeft: "15px" }}
           onClick={() => {
             this.props.selectChatRoom(this.props.ChatRoom);
-            console.log(this.props.ChatRoom);
+            //console.log(this.props.ChatRoom);
           }}
         >
           <div className="col-md-4" style={{ width: "100%", margin: "auto" }}>

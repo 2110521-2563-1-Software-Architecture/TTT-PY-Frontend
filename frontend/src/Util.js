@@ -10,7 +10,7 @@ const Util = {
       },
       body: JSON.stringify({ username, password }),
     });
-    console.log(response.status);
+    //console.log(response.status);
     return response.json();
     // if (response.status == 500) return response.json();
     // if (response.status == 200) return response.json();
@@ -51,7 +51,7 @@ const Util = {
       method: "GET",
       mode: "cors",
     });
-    console.log(response);
+    //console.log(response);
     if (response.status == 400) return response.json();
     if (response.status == 200) return response.json();
   },
@@ -64,7 +64,7 @@ const Util = {
         Authorization: localStorage.getItem("token"),
       },
     });
-    console.log(response);
+    //console.log(response);
     if (response.status == 200) return response.json();
     else {
       return { err: response.message };
@@ -83,7 +83,7 @@ const Util = {
         Authorization: localStorage.getItem("token"),
       },
     });
-    console.log(response);
+    //console.log(response);
     if (response.status == 200) return response.json();
     else {
       return { err: response.message };
@@ -99,7 +99,7 @@ const Util = {
         Authorization: localStorage.getItem("token"),
       },
     });
-    console.log(response);
+    //console.log(response);
     if (response.status == 400) return response.json();
     if (response.status == 200) return response.json();
     else return { err: response.message };
@@ -117,7 +117,7 @@ const Util = {
       },
       body: JSON.stringify({ username }),
     });
-    console.log(response.status);
+    //console.log(response.status);
     if (response.status == 500) return response.json();
     if (response.status == 200) return response.json();
   },
@@ -134,7 +134,7 @@ const Util = {
     else return { err: response.message };
   },
   getChatRoomByID: async (id) => {
-    console.log(id);
+    //console.log(id);
     if (!id) return { err: "invalid input" }; //Please Edit Here
     const URL = `http://${process.env.REACT_APP_API_ENDPOINT}/chat/room/${id}`;
     const response = await fetch(URL, {
@@ -159,12 +159,12 @@ const Util = {
       },
       body: JSON.stringify({ username }),
     });
-    console.log(response.status);
+    //console.log(response.status);
     if (response.status == 201) return response.json();
     else return { err: response.message };
   },
   deleteChatRoom: async (id) => {
-    console.log(id);
+    //console.log(id);
     if (!id) return { err: "invalid input" };
     const URL = `http://${process.env.REACT_APP_API_ENDPOINT}/chat/room/${id}`;
     const response = await fetch(URL, {
@@ -176,7 +176,7 @@ const Util = {
         Authorization: localStorage.getItem("token"),
       },
     });
-    console.log(response.status);
+    //console.log(response.status);
     if (response.status == 201) return response.json();
     else return { err: response.message };
   },
@@ -192,7 +192,7 @@ const Util = {
       },
       body: JSON.stringify({ username }),
     });
-    console.log(response.status);
+    //console.log(response.status);
     if (response.status == 201) return response.json();
     else return { err: response.message };
   },
@@ -208,7 +208,7 @@ const Util = {
       },
       body: JSON.stringify({ username }),
     });
-    console.log(response.status);
+    //console.log(response.status);
     if (response.status == 201) return response.json();
     else return { err: response.message };
   },
@@ -225,7 +225,7 @@ const Util = {
       },
       body: JSON.stringify({ firstName, lastName, email, img }),
     });
-    console.log(response);
+    //console.log(response);
     if (response.status == 200) return response.json();
     else {
       return { err: response.message };

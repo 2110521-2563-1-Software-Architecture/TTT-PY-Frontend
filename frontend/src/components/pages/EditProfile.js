@@ -94,18 +94,18 @@ class EditProfile extends Component {
   async componentDidMount() {
     const profileInfo = await Util.getMyprofile();
     await this.setState(profileInfo.data);
-    console.log(profileInfo.data);
-    console.log(this.state);
-    console.log(imgs[1]);
+    //console.log(profileInfo.data);
+    //console.log(this.state);
+    //console.log(imgs[1]);
   }
   render() {
-    console.log("in the Edit page");
+    //console.log("in the Edit page");
     const backToProfile = () => {
       history.push(`/MyProfile`);
       window.location.reload();
     };
     const confirmChange = async () => {
-      console.log(this.state.email);
+      //console.log(this.state.email);
       await Util.editMyProfile(
         this.state.firstName,
         this.state.lastName,

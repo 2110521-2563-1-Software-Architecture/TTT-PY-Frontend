@@ -37,21 +37,33 @@ function RegisterComponent() {
   const handleChange_confirmPassword = (event) => {
     checkPassword(event.target.value);
     if (confirm_password == password) setUserAccount(true);
-    console.log("userAccount :", userAccount);
+    //console.log("userAccount :", userAccount);
   };
   const SetUserInformation = async () => {
     if (confirm_password != password) {
       alert("password and confirm password must be the same");
       setUserAccount(false);
-    } else if (user === '' || email === '' || password === '' || confirm_password === '') {
+    } else if (
+      user === "" ||
+      email === "" ||
+      password === "" ||
+      confirm_password === ""
+    ) {
       alert("please fill all of the data");
       setUserAccount(false);
     } else {
       setUserAccount(true);
       //   recaptchaRef.current.reset();
-      let data = await Util.register(user, firstName, lastName, email, password, recaptchaResponse);
-      console.log("data");
-      console.log(data);
+      let data = await Util.register(
+        user,
+        firstName,
+        lastName,
+        email,
+        password,
+        recaptchaResponse
+      );
+      //console.log("data");
+      //console.log(data);
       if (data) {
         window.alert(data.message);
       } else {
@@ -59,12 +71,12 @@ function RegisterComponent() {
       }
     }
 
-    console.log("user information");
-    console.log(user);
-    console.log(firstName);
-    console.log(lastName);
-    console.log(email);
-    console.log(password);
+    //console.log("user information");
+    //console.log(user);
+    //console.log(firstName);
+    //console.log(lastName);
+    //console.log(email);
+    //console.log(password);
     // call API from back and link to login
   };
   return (

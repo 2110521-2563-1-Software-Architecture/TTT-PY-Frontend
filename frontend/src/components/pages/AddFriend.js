@@ -9,16 +9,16 @@ export class AddFriend extends Component {
     super(props);
     this.state = {
       username: "",
-      friend: ""
+      friend: "",
     };
 
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
-  onSelectFriend=async (friend)=> {
-    console.log(friend);
-    this.state.friend = friend; 
-  }
+  onSelectFriend = async (friend) => {
+    //console.log(friend);
+    this.state.friend = friend;
+  };
   render() {
     return (
       <div className="row" style={{ minWidth: "1000px" }}>
@@ -50,10 +50,10 @@ export class AddFriend extends Component {
             name="username"
             onChange={this.handleChange}
           />
-          <row style={{ width: "100%"}}>
+          <row style={{ width: "100%" }}>
             <button
               className="button"
-              style={{ margin: 'auto' }}
+              style={{ margin: "auto" }}
               onClick={() => this.handleClick(this.state.username)}
             >
               Add Friend
@@ -69,7 +69,7 @@ export class AddFriend extends Component {
     let data = await Util.addFriend(this.state.username);
     history.push(`/Friend`);
     window.location.reload();
-    // console.log(data);
+    // //console.log(data);
   }
   handleChange(event) {
     const value = event.target.value;

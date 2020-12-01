@@ -15,18 +15,18 @@ class ChatRoomComponent extends Component {
   }
   async componentDidMount() {
     // this.setState({ props });
-    // console.log(this.props.selectedChatRoom);
+    // //console.log(this.props.selectedChatRoom);
     // var chatRoom = await Util.getChatRoomByID(this.props.selectedChatRoom);
-    // console.log(chatRoom);
+    // //console.log(chatRoom);
   }
 
   sendMessage() {
-    console.log(this.state.inputMessage);
+    //console.log(this.state.inputMessage);
     this.state.message.push({
       user: localStorage.getItem("user"),
       message: this.state.inputMessage,
     });
-    console.log(this.state.message);
+    //console.log(this.state.message);
   }
   render() {
     return (

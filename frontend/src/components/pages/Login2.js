@@ -5,7 +5,6 @@ import history from "../../History";
 import { useHistory } from "react-router-dom";
 
 export class Login2 extends Component {
-
   constructor(props) {
     super(props);
 
@@ -84,32 +83,30 @@ export class Login2 extends Component {
     let user = this.state.user;
     let password = this.state.password;
     let data = await Util.login(user, password);
-    
 
     if (data.message) {
       //get error message from backend
       window.alert(data.message);
       this.setState({ password: "" });
-      localStorage.setItem("isSignIn", 'false');
+      localStorage.setItem("isSignIn", "false");
     } else {
-
       // login success
 
       //check information
-      console.log("token");
-      console.log(data.data.token);
-      console.log(user);
+      //console.log("token");
+      //console.log(data.data.token);
+      //console.log(user);
 
       // add user in formation to user storage
-      localStorage.setItem("isSignIn", 'true');
+      localStorage.setItem("isSignIn", "true");
       localStorage.setItem("token", data.data.token);
       localStorage.setItem("user", user);
 
       // get email from backend
-      let userInformation = await Util.getUser(user)
+      let userInformation = await Util.getUser(user);
       let email = userInformation.data.email;
-      localStorage.setItem("email",email);
-      console.log(email);
+      localStorage.setItem("email", email);
+      //console.log(email);
 
       //change to Profile Page
       history.push(`/MyProfile`);

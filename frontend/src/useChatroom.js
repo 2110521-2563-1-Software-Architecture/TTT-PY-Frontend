@@ -19,7 +19,7 @@ const useChatroom = (token) => {
     );
 
     socketRef.current.on(REFRESH_CHATROOM, async (refresh) => {
-      console.log(refresh);
+      //console.log(refresh);
       setRefresh(true);
     });
 

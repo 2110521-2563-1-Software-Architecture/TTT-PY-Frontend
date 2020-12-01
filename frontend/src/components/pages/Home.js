@@ -8,7 +8,7 @@ function Home() {
   if (isSignin == "true") {
     return <Friend />;
   } else {
-    console.log("isnt sign in");
+    //console.log("isnt sign in");
     return <RegisterComponent />;
   }
 }

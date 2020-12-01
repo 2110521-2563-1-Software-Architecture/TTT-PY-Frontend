@@ -23,44 +23,44 @@ const FriendProfile = (props) => {
   const onChatNow = async () => {
     var response = await Util.createChatroom(friend.username);
     if (response.err) {
-      console.log(response.err);
+      //console.log(response.err);
     } else {
-      console.log(response.data);
+      //console.log(response.data);
       history.push("/chat");
     }
   };
   //unfinised function
   const onClickBlockBtn = async () => {
-    console.log(props.selectedFriend.isBlocked);
-    console.log("block");
+    //console.log(props.selectedFriend.isBlocked);
+    //console.log("block");
     var response = await Util.blockFriend(friend.username);
     if (response.err) {
-      console.log(response.err);
+      //console.log(response.err);
     } else {
-      console.log(response.data);
+      //console.log(response.data);
       setIsBlocked(true);
       // window.location.reload();
     }
   };
   const onClickUnblockBtn = async () => {
-    console.log(props.selectedFriend.isBlocked);
-    console.log("unblock");
+    //console.log(props.selectedFriend.isBlocked);
+    //console.log("unblock");
     var response = await Util.unBlockFriend(friend.username);
     if (response.err) {
-      console.log(response.err);
+      //console.log(response.err);
     } else {
-      console.log(response.data);
+      //console.log(response.data);
       setIsBlocked(false);
       // window.location.reload();
     }
   };
   const setFriendInfo = async (friend) => {
-    console.log(friend);
+    //console.log(friend);
     var response = await Util.getUser(friend.username);
     if (response.err) {
-      console.log(response.err);
+      //console.log(response.err);
     } else {
-      console.log(response.data);
+      //console.log(response.data);
       setFriend(response.data);
     }
   };

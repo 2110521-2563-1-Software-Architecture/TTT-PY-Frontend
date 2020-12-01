@@ -7,7 +7,7 @@ function Chat() {
   const [chatRoom, setChatRoom] = useState("");
   function onSelectChatroom(chatRoom) {
     setChatRoom(chatRoom);
-    console.log(chatRoom);
+    //console.log(chatRoom);
   }
   return (
     <div className="row">

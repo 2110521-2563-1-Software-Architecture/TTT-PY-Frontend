@@ -6,16 +6,19 @@ function Friend() {
   const [friend, setFriend] = useState("");
   const [isBlocked, setIsBlocked] = useState(false);
   function onSelectFriend(friend) {
-    console.log(friend);
+    //console.log(friend);
     setFriend(friend);
   }
   return (
     <div className="row" style={{}}>
-      <div className="col-md-4" style={{
+      <div
+        className="col-md-4"
+        style={{
           minWidth: "300px",
           maxWidth: "300px",
           borderRight: "2px solid var(--bg-secondary-color)",
-        }}>
+        }}
+      >
         <FriendList selectFriend={onSelectFriend} />
       </div>
       <div className="col-md-8" style={{}}>
