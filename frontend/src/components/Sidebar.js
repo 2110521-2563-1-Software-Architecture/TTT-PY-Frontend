@@ -1,7 +1,20 @@
 import React, { useState, useEffect, Component } from 'react'
 import './Sidebar.css';
 import { Link } from 'react-router-dom';
+import Util from "../Util";
+import imgs from "../assets/img.js"
 export class Sidebar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+
+    };
+  }
+  async componentDidMount() {
+    const profileInfo = await Util.getMyprofile()
+    await this.setState(profileInfo.data)
+  }
+
   render() {
     let isSignIn = localStorage.getItem('isSignIn');
     let  user = "Sign In"
@@ -32,7 +45,7 @@ export class Sidebar extends Component {
           <div className="user container-fluid" style={{}}>
             <Link to={isSignIn?'/MyProfile':'/Login'} className="row user-row" style={{}}>
               <div className="col-md-4" style={{}}>
-                <img className="user-image" style={{}} src="user_icon.png" />
+                <img className="user-image" style={{}} src={this.state.img?imgs[this.state.img]:imgs[0]} />
               </div>
               <div className="col-md-8" style={{}}>
                 <div className="username" style={{ textAlign: "left" }}>{user}</div>
