@@ -87,11 +87,11 @@ const ChatRoom = (props) => {
           <div className="header-name row" style={{}}>
             {/* friend's name */}
             {friend}
-            <div className="button-container" style={{ paddingLeft: "80%" }}>
+            
+            <div className="button-container" style={{ paddingLeft:"70%" }}>
               <button className="button-red" onClick={onClickDelete}>Delete Chat</button>
             </div>
           </div>
-          
         </div>
         {/* main area */}
         <div className="bg-chatroom" id="bottom">
