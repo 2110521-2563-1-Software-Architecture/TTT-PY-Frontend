@@ -3,6 +3,7 @@ import "./FriendList.css"; //Please Edit Here
 import useChatroom from "../useChatroom";
 
 import Util from "../Util";
+import imgs from "../assets/img";
 
 function ChatRoomList(props) {
   const token = localStorage.getItem("token");
@@ -15,11 +16,11 @@ function ChatRoomList(props) {
       console.log(response.err);
     } else {
       var chatRoomList = response.data.map((chatRoom) => {
-        var { chatRoomID, username1, username2 } = chatRoom;
+        var { chatRoomID, Friend } = chatRoom;
         return {
           chatRoomID,
-          username:
-            username1 === localStorage.getItem("user") ? username2 : username1,
+          username: Friend.username,
+          img: Friend.img,
         };
       });
       setChatroomList(chatRoomList);
@@ -50,7 +51,7 @@ function ChatRoomList(props) {
             );
           })}
         </div>
-      </div>  
+      </div>
     </div>
   );
 }
@@ -64,7 +65,14 @@ class ChatRoomListHeader extends Component {
         <div class="friend-list-header">
           <div class="row">
             <div class="col-md-12" style={{}}>
-              <div style={{ fontWeight: "bold", color: "var(--text-primary-color)", }}>Chat</div>
+              <div
+                style={{
+                  fontWeight: "bold",
+                  color: "var(--text-primary-color)",
+                }}
+              >
+                Chat
+              </div>
               <div
                 style={{
                   fontSize: "12px",
@@ -95,7 +103,14 @@ class ChatRoom extends Component {
           }}
         >
           <div className="col-md-4" style={{ width: "100%", margin: "auto" }}>
-            <img className="friend-image " src={"userimage.jpeg"} />
+            <img
+              className="friend-image "
+              src={
+                this.props.ChatRoom.img != null
+                  ? imgs[this.props.ChatRoom.img]
+                  : "user_icon.png"
+              }
+            />
           </div>
           <div className="col-md-8" style={{ width: "100%", margin: "auto" }}>
             <div className="friend-name ">{this.props.ChatRoom.username}</div>
