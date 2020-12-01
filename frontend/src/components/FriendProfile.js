@@ -3,6 +3,7 @@ import "./Public.css";
 import Util from "../Util";
 import { useHistory } from "react-router-dom";
 import FriendList from "./FriendList";
+import imgs from "../assets/img";
 
 const FriendProfile = (props) => {
   const [friend, setFriend] = useState({
@@ -69,7 +70,10 @@ const FriendProfile = (props) => {
       {friend.username && (
         <>
           <div style={{ paddingTop: "100px" }}>
-            <img className="profile-image" src="userimage.jpeg" />
+            <img
+              className="profile-image"
+              src={friend.img != null ? imgs[friend.img] : "user_icon.png"}
+            />
           </div>
           <div className="profile-title">{friend.username}</div>
           <div className="profile-data" style={{ marginBottom: "20px" }}>

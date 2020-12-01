@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./FriendList.css";
 import Util from "../Util";
 import history from "../History";
+import imgs from "../assets/img";
 
 export class FriendList extends Component {
   constructor(props) {
@@ -110,7 +111,14 @@ class Friend extends Component {
           onClick={() => this.props.selectFriend(this.props.friend)}
         >
           <div className="col-md-4" style={{ width: "100%", margin: "auto" }}>
-            <img className="friend-image " src={"userimage.jpeg"} />
+            <img
+              className="friend-image "
+              src={
+                this.props.friend.User.img != null
+                  ? imgs[this.props.friend.User.img]
+                  : "user_icon.png"
+              }
+            />
           </div>
           <div className="col-md-8" style={{ width: "100%", margin: "auto" }}>
             <div className="friend-name ">{this.props.friend.username}</div>
