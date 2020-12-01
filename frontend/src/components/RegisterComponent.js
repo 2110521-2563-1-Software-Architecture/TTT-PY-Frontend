@@ -8,6 +8,8 @@ import { useHistory } from "react-router-dom";
 function RegisterComponent() {
   const [userAccount, setUserAccount] = useState(false);
   const [user, setUsername] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirm_password, checkPassword] = useState("");
@@ -19,6 +21,12 @@ function RegisterComponent() {
   };
   const handleChange_user = (event) => {
     setUsername(event.target.value);
+  };
+  const handleChange_firstName = (event) => {
+    setFirstName(event.target.value);
+  };
+  const handleChange_lastName = (event) => {
+    setLastName(event.target.value);
   };
   const handleChange_email = (event) => {
     setEmail(event.target.value);
@@ -41,7 +49,7 @@ function RegisterComponent() {
     } else {
       setUserAccount(true);
       //   recaptchaRef.current.reset();
-      let data = await Util.register(user, email, password, recaptchaResponse);
+      let data = await Util.register(user, firstName, lastName, email, password, recaptchaResponse);
       console.log("data");
       console.log(data);
       if (data) {
@@ -53,6 +61,8 @@ function RegisterComponent() {
 
     console.log("user information");
     console.log(user);
+    console.log(firstName);
+    console.log(lastName);
     console.log(email);
     console.log(password);
     // call API from back and link to login
@@ -82,6 +92,7 @@ function RegisterComponent() {
           type="text"
           className="row box"
           placeholder="Firstname"
+          onChange={handleChange_firstName}
           style={{
             marginTop: "20px",
             marginBottom: "20px",
@@ -93,6 +104,7 @@ function RegisterComponent() {
           type="text"
           className="row box"
           placeholder="Lastname"
+          onChange={handleChange_lastName}
           style={{
             marginTop: "20px",
             marginBottom: "20px",
