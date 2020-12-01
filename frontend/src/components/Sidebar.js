@@ -45,7 +45,7 @@ export class Sidebar extends Component {
           <div className="user container-fluid" style={{}}>
             <Link to={isSignIn?'/MyProfile':'/Login'} className="row user-row" style={{}}>
               <div className="col-md-4" style={{}}>
-                <img className="user-image" style={{}} src={this.state.img?imgs[this.state.img]:imgs[0]} />
+                <img className="user-image" style={{}} src={this.state.img!=null?imgs[this.state.img]:"user_icon.png"} />
               </div>
               <div className="col-md-8" style={{}}>
                 <div className="username" style={{ textAlign: "left" }}>{user}</div>

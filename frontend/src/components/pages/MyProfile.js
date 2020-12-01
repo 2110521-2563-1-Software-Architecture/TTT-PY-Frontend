@@ -39,7 +39,7 @@ export class MyProfile extends Component {
         return (
             <div className="background-color" style={{ paddingLeft: '100px' }}>
                 <div style={{ paddingTop: "100px" }}>
-                    <img className="profile-image" src={this.state.img?imgs[this.state.img]:imgs[0]} />
+                    <img className="profile-image" src={this.state.img!=null?imgs[this.state.img]:"user_icon.png"} />
                 </div>
                 <div className="profile-title">
                     {this.state.username}
