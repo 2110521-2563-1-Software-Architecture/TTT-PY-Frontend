@@ -26,6 +26,12 @@ const ChatRoom = (props) => {
     // setChatRoomInfo(roomId);
   }, [roomId]);
 
+  useEffect(() => {
+    var element = document.getElementById("bottom");
+    if (element != null) {
+      element.scrollTop = 9999999;
+    }
+  }, [messages]);
   // const setChatRoomInfo = async (roomId) => {
   //   var chatRoom = await Util.getChatRoomByID(roomId);
   //   //console.log(chatRoom);
@@ -49,9 +55,9 @@ const ChatRoom = (props) => {
         text: newMessage,
       });
     setNewMessage("");
-    setTimeout(() => {
-      document.getElementById("bottom").scrollTop = 9999999;
-    }, 600);
+    // setTimeout(() => {
+    //   document.getElementById("bottom").scrollTop = 9999999;
+    // }, 600);
   };
 
   const onEnterPress = (e) => {
@@ -143,24 +149,17 @@ const ChatRoom = (props) => {
                 );
               }
             })}
-
-            {sendingMessages.map((message, i) => {
-              return (
-                <div className="message-area" style={{ marginLeft: "auto" }}>
-                  <div
-                    className="message-chat"
-                    style={{
-                      background: "var(--chat-font-color)",
-                    }}
-                  >
-                    {"sending:" + message.text}
-                  </div>
-                </div>
-              );
-            })}
           </ol>
         </div>
       </div>
+      {/* sending label area */}
+      {sendingMessages.map((message, i) => {
+        return (
+          <div class="row send-label" style={{ paddingLeft: "5%" }}>
+            <div>Sending...</div>
+          </div>
+        );
+      })}
       {/* sending box area */}
       <div className="send-box">
         <div class="row" style={{ paddingLeft: "5%" }}>
@@ -173,6 +172,7 @@ const ChatRoom = (props) => {
                 class="input-message"
                 placeholder="message"
                 value={newMessage}
+                style={{ width: "100%" }}
                 onChange={handleNewMessageChange}
                 onKeyDown={onEnterPress}
                 placeholder="Write message..."
