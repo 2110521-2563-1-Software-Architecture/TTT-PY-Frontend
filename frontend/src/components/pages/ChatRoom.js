@@ -95,11 +95,11 @@ const ChatRoom = (props) => {
           <div className="header-name col-6">{friend}</div>
           <div
             className="button-container col-6"
-            style={{ paddingLeft: "25%", float: "right" }}
+            style={{ paddingLeft: "25%", float: "right", minHeight: '100%', margin: 'auto' }}
           >
-            <button className="button-red" onClick={onClickDelete}>
+            <div className="button-red" onClick={onClickDelete}>
               Delete Chat
-            </button>
+            </div>
           </div>
         </div>
       </div>
